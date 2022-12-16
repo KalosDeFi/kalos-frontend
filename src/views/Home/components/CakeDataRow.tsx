@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getKaloAddress } from 'utils/addressHelpers'
 import { getBalanceNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
 import { usePriceCakeBusd } from 'state/farms/hooks'
 import { Flex, Text, Heading, Skeleton } from '@pancakeswap/uikit'
