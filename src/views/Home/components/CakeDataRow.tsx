@@ -46,10 +46,10 @@ const emissionsPerBlock = 19
 const CakeDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
-  const burnedBalance = getBalanceNumber(useBurnedBalance(getCakeAddress()))
-  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  const burnedBalance = getBalanceNumber(useBurnedBalance(getKaloAddress()))
+  const kaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
   const cakePriceBusd = usePriceCakeBusd()
-  const mcap = cakePriceBusd.times(cakeSupply)
+  const mcap = cakePriceBusd.times(kaloSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   return (
