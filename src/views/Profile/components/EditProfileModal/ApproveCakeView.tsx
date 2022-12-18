@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AutoRenewIcon, Button, Flex, InjectedModalProps, Text } from '@pancakeswap/uikit'
+import { AutoRenewIcon, Button, Flex, InjectedModalProps, Text } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useKalo } from 'hooks/useContract'
 import useToast from 'hooks/useToast'

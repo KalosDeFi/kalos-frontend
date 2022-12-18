@@ -4,7 +4,7 @@ import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { getKaloAddress } from 'utils/addressHelpers'
 import { getBalanceNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
 import { usePriceCakeBusd } from 'state/farms/hooks'
-import { Flex, Text, Heading, Skeleton } from '@pancakeswap/uikit'
+import { Flex, Text, Heading, Skeleton } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
 
