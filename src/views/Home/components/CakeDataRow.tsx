@@ -41,7 +41,7 @@ const Grid = styled.div`
   }
 `
 
-const emissionsPerBlock = 19
+const emissionsPerBlock = 100
 
 const CakeDataRow = () => {
   const { t } = useTranslation()
@@ -56,8 +56,8 @@ const CakeDataRow = () => {
     <Grid>
       <Flex flexDirection="column">
         <Text color="textSubtle">{t('Total supply')}</Text>
-        {cakeSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
+        {kaloSupply ? (
+          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={kaloSupply} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
@@ -81,7 +81,7 @@ const CakeDataRow = () => {
       <StyledColumn>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        <Heading scale="lg">{t('%kaloEmissions%/block', { kaloEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )
