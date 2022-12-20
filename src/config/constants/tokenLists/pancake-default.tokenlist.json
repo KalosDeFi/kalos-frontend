@@ -59,6 +59,14 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
     },
     {
+      "name": "Kalos Token",
+      "symbol": "KALO",
+      "address": "0xFf64F848115A682e41EAeb36bCE387eeBB3770E5",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xFf64F848115A682e41EAeb36bCE387eeBB3770E5.png"
+    },
+    {
       "name": "Venus",
       "symbol": "XVS",
       "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
