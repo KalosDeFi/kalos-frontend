@@ -60,11 +60,11 @@ const farms: FarmConfig[] = [
    */
   
   {
-    pid: 63,
-    lpSymbol: 'UST-BUSD LP',
+    pid: 5,
+    lpSymbol: 'KALO-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0xD1F12370b2ba1C79838337648F820a87eDF5e1e6',
+      56: '0x63d56A66a740B7AFff58eEa4B63F059e5D1Bf8F4',
     },
     token: tokens.ust,
     quoteToken: tokens.busd,
