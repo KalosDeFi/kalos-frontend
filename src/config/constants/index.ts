@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@kalosdefi/sdk'
 import { BUSD, DAI, USDT, BTCB, KALO, WBNB, UST, ETH, USDC } from './tokens'
 
-export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+export const ROUTER_ADDRESS = '0x022C703E11576fB5D740bcd5dD13F4A61B36f9E3'
 
 // a list of tokens by chain
 type ChainTokenList = {
