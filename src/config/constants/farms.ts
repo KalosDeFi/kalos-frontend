@@ -46,11 +46,11 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.wbnb,
   },
   {
-    pid: 3,
+    pid: 5,
     lpSymbol: 'KALO-BUSD LP',
     lpAddresses: {
       97: '0xcbe3282a562e23b8c61ed04bb72ffdbb9233b1ce',
-      56: '0xd278D06eeE85EBB13E40F8A5e6c952b4c1093351',
+      56: '0x63d56A66a740B7AFff58eEa4B63F059e5D1Bf8F4',
     },
     token: tokens.kalo,
     quoteToken: tokens.busd,
@@ -59,16 +59,6 @@ const farms: FarmConfig[] = [
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
   
-  {
-    pid: 5,
-    lpSymbol: 'KALO-BUSD LP',
-    lpAddresses: {
-      97: '',
-      56: '0x63d56A66a740B7AFff58eEa4B63F059e5D1Bf8F4',
-    },
-    token: tokens.kalo,
-    quoteToken: tokens.busd,
-  },
   {
     pid: 54,
     lpSymbol: 'LTC-BNB LP',
