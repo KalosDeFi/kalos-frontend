@@ -26,12 +26,12 @@ const PreviousRoundCardFooter: React.FC<{ lotteryData: LotteryRound; lotteryId: 
 }) => {
   const { t } = useTranslation()
   const lotteryGraphData = useGetLotteryGraphDataById(lotteryId)
-  const cakePriceBusd = usePriceKaloBusd()
+  const kaloPriceBusd = usePriceKaloBusd()
 
   let prizeInBusd = new BigNumber(NaN)
   if (lotteryData) {
     const { amountCollectedInCake } = lotteryData
-    prizeInBusd = amountCollectedInCake.times(cakePriceBusd)
+    prizeInBusd = amountCollectedInCake.times(kaloPriceBusd)
   }
 
   const getPrizeBalances = () => {

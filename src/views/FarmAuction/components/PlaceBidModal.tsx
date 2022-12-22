@@ -64,7 +64,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
   const { balance: userKalo, fetchStatus } = useTokenBalance(getKaloAddress())
   const userCakeBalance = getBalanceAmount(userKalo)
 
-  const cakePriceBusd = usePriceKaloBusd()
+  const kaloPriceBusd = usePriceKaloBusd()
   const farmAuctionContract = useFarmAuctionContract()
   const kaloContract = useKalo()
 
@@ -165,8 +165,8 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
           value={bid}
           onUserInput={handleInputChange}
           currencyValue={
-            cakePriceBusd.gt(0) &&
-            `~${bid ? cakePriceBusd.times(new BigNumber(bid)).toNumber().toLocaleString() : '0.00'} USD`
+            kaloPriceBusd.gt(0) &&
+            `~${bid ? kaloPriceBusd.times(new BigNumber(bid)).toNumber().toLocaleString() : '0.00'} USD`
           }
         />
         <Flex justifyContent="flex-end" mt="8px">

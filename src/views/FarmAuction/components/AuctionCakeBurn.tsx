@@ -11,9 +11,9 @@ const AuctionCakeBurn: React.FC = () => {
   const [burnedCakeAmount, setBurnedCakeAmount] = useState(0)
   const { t } = useTranslation()
   const farmAuctionContract = useFarmAuctionContract()
-  const cakePriceBusd = usePriceKaloBusd()
+  const kaloPriceBusd = usePriceKaloBusd()
 
-  const burnedAmountAsUSD = cakePriceBusd.times(burnedCakeAmount)
+  const burnedAmountAsUSD = kaloPriceBusd.times(burnedCakeAmount)
 
   useEffect(() => {
     const fetchBurnedCakeAmount = async () => {

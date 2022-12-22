@@ -48,8 +48,8 @@ const CakeDataRow = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getKaloAddress()))
   const kaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
-  const cakePriceBusd = usePriceKaloBusd()
-  const mcap = cakePriceBusd.times(kaloSupply)
+  const kaloPriceBusd = usePriceKaloBusd()
+  const mcap = kaloPriceBusd.times(kaloSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   return (
