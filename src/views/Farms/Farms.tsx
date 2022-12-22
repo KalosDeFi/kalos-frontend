@@ -161,11 +161,11 @@ const Farms: React.FC = () => {
           return farm
         }
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-        const { cakeRewardsApr, lpRewardsApr } = isActive
+        const { kaloRewardsApr, lpRewardsApr } = isActive
           ? getFarmApr(new BigNumber(farm.poolWeight), kaloPrice, totalLiquidity, farm.lpAddresses[ChainId.MAINNET])
-          : { cakeRewardsApr: 0, lpRewardsApr: 0 }
+          : { kaloRewardsApr: 0, lpRewardsApr: 0 }
 
-        return { ...farm, apr: cakeRewardsApr, lpRewardsApr, liquidity: totalLiquidity }
+        return { ...farm, apr: kaloRewardsApr, lpRewardsApr, liquidity: totalLiquidity }
       })
 
       if (query) {
