@@ -3,14 +3,14 @@ import { Menu as UikitMenu } from '@kalosdefi/uikit'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { usePriceKaloBusd } from 'state/farms/hooks'
 import { useProfile } from 'state/profile/hooks'
 import config from './config'
 import UserMenu from './UserMenu'
 
 const Menu = (props) => {
   const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = usePriceCakeBusd()
+  const kaloPriceUsd = usePriceKaloBusd()
   const { profile } = useProfile()
   const { currentLanguage, setLanguage, t } = useTranslation()
 
@@ -22,7 +22,7 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
-      cakePriceUsd={cakePriceUsd.toNumber()}
+      kaloPriceUsd={kaloPriceUsd.toNumber()}
       links={config(t)}
       profile={{
         username: profile?.username,

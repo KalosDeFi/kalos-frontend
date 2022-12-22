@@ -25,18 +25,18 @@ export const getPoolApr = (
 /**
  * Get farm APR value in %
  * @param poolWeight allocationPoint / totalAllocationPoint
- * @param cakePriceUsd Cake price in USD
+ * @param kaloPriceUsd Kalo price in USD
  * @param poolLiquidityUsd Total pool liquidity in USD
  * @returns
  */
 export const getFarmApr = (
   poolWeight: BigNumber,
-  cakePriceUsd: BigNumber,
+  kaloPriceUsd: BigNumber,
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
 ): { cakeRewardsApr: number; lpRewardsApr: number } => {
   const yearlyCakeRewardAllocation = KALO_PER_YEAR.times(poolWeight)
-  const cakeRewardsApr = yearlyCakeRewardAllocation.times(cakePriceUsd).div(poolLiquidityUsd).times(100)
+  const cakeRewardsApr = yearlyCakeRewardAllocation.times(kaloPriceUsd).div(poolLiquidityUsd).times(100)
   let cakeRewardsAprAsNumber = null
   if (!cakeRewardsApr.isNaN() && cakeRewardsApr.isFinite()) {
     cakeRewardsAprAsNumber = cakeRewardsApr.toNumber()

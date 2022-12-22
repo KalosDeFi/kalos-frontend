@@ -98,7 +98,7 @@ export const usePriceBnbBusd = (): BigNumber => {
   return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(1)
-  return new BigNumber(cakeBnbFarm.token.busdPrice)
+export const usePriceKaloBusd = (): BigNumber => {
+  const kaloBnbFarm = useFarmFromPid(4)
+  return new BigNumber(kaloBnbFarm.token.busdPrice)
 }
