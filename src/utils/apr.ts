@@ -34,15 +34,15 @@ export const getFarmApr = (
   kaloPriceUsd: BigNumber,
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
-): { cakeRewardsApr: number; lpRewardsApr: number } => {
-  const yearlyCakeRewardAllocation = KALO_PER_YEAR.times(poolWeight)
-  const cakeRewardsApr = yearlyCakeRewardAllocation.times(kaloPriceUsd).div(poolLiquidityUsd).times(100)
-  let cakeRewardsAprAsNumber = null
-  if (!cakeRewardsApr.isNaN() && cakeRewardsApr.isFinite()) {
-    cakeRewardsAprAsNumber = cakeRewardsApr.toNumber()
+): { kaloRewardsApr: number; lpRewardsApr: number } => {
+  const yearlyKaloRewardAllocation = KALO_PER_YEAR.times(poolWeight)
+  const kaloRewardsApr = yearlyKaloRewardAllocation.times(kaloPriceUsd).div(poolLiquidityUsd).times(100)
+  let kaloRewardsAprAsNumber = null
+  if (!kaloRewardsApr.isNaN() && kaloRewardsApr.isFinite()) {
+    kaloRewardsAprAsNumber = kaloRewardsApr.toNumber()
   }
   const lpRewardsApr = lpAprs[farmAddress?.toLocaleLowerCase()] ?? 0
-  return { cakeRewardsApr: cakeRewardsAprAsNumber, lpRewardsApr }
+  return { kaloRewardsApr: kaloRewardsAprAsNumber, lpRewardsApr }
 }
 
 export default null
