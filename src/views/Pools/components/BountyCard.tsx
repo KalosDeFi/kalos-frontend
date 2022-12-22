@@ -55,7 +55,7 @@ const BountyCard = () => {
         )}
       </Text>
       <Text style={{ fontWeight: 'bold' }}>
-        {t('Auto-Compound Bounty: %fee%% of all Auto CAKE pool users pending yield', { fee: fee / 100 })}
+        {t('Auto-Compound Bounty: %fee%% of all Auto KALO pool users pending yield', { fee: fee / 100 })}
       </Text>
     </>
   )
