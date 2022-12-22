@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { AutoRenewIcon, Button, Card, CardBody, Flex, Skeleton, Text, Link, ArrowForwardIcon } from '@kalosdefi/uikit'
 import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { usePriceKaloBusd } from 'state/farms/hooks'
 import useToast from 'hooks/useToast'
 import { useMasterchef } from 'hooks/useContract'
 import { harvestFarm } from 'utils/calls'
@@ -21,7 +21,7 @@ const HarvestCard = () => {
   const { toastSuccess, toastError } = useToast()
   const { farmsWithStakedBalance, earningsSum } = useFarmsWithBalance()
   const masterChefContract = useMasterchef()
-  const cakePriceBusd = usePriceCakeBusd()
+  const cakePriceBusd = usePriceKaloBusd()
   const earningsBusd = new BigNumber(earningsSum).multipliedBy(cakePriceBusd)
   const numFarmsToCollect = farmsWithStakedBalance.length
 

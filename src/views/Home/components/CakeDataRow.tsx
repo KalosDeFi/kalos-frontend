@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { getKaloAddress } from 'utils/addressHelpers'
 import { getBalanceNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { usePriceKaloBusd } from 'state/farms/hooks'
 import { Flex, Text, Heading, Skeleton } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
@@ -48,7 +48,7 @@ const CakeDataRow = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getKaloAddress()))
   const kaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
-  const cakePriceBusd = usePriceCakeBusd()
+  const cakePriceBusd = usePriceKaloBusd()
   const mcap = cakePriceBusd.times(kaloSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
