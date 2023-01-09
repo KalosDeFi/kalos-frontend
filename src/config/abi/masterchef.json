@@ -7,7 +7,7 @@
 				"type": "address"
 			},
 			{
-				"internalType": "contract XKalos",
+				"internalType": "contract Xkalos",
 				"name": "_xkalo",
 				"type": "address"
 			},
@@ -255,32 +255,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "xalo",
-		"outputs": [
-			{
-				"internalType": "contract KalosToken",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "xaloPerBlock",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -352,7 +326,7 @@
 				"type": "address"
 			}
 		],
-		"name": "pendingKalo",
+		"name": "pendingXalo",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -390,7 +364,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "accKaloPerShare",
+				"name": "accXaloPerShare",
 				"type": "uint256"
 			}
 		],
@@ -567,10 +541,36 @@
 	},
 	{
 		"inputs": [],
-		"name": "xxalo",
+		"name": "xalo",
 		"outputs": [
 			{
-				"internalType": "contract XKalos",
+				"internalType": "contract KalosToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "xaloPerBlock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "xkalo",
+		"outputs": [
+			{
+				"internalType": "contract Xkalos",
 				"name": "",
 				"type": "address"
 			}
