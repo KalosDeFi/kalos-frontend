@@ -7,30 +7,21 @@ const farms: FarmConfig[] = [
    */
   {
     pid: 0,
-    lpSymbol: 'KALO',
+    lpSymbol: 'XALO',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      56: '0xFf64F848115A682e41EAeb36bCE387eeBB3770E5',
+      56: '0xE9E9b8001d86C36F971d046D64983738599C7385',
     },
     token: tokens.xkalo,
     quoteToken: tokens.wbnb,
   },
-  {
-    pid: 4,
-    lpSymbol: 'KALO-BNB LP',
-    lpAddresses: {
-      97: '0xcbe3282a562e23b8c61ed04bb72ffdbb9233b1ce',
-      56: '0x2c3E1677834a2a3aA056E24B754ec4b345783C87',
-    },
-    token: tokens.kalo,
-    quoteToken: tokens.wbnb,
-  },
+
   {
     pid: 1,
     lpSymbol: 'CAKE-BNB LP',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
-      56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
+      56: '0x2C0FAeE1f207a6Bb4657746AF26E1Db2c4B4f6bC',
     },
     token: tokens.cake,
     quoteToken: tokens.wbnb,
@@ -40,9 +31,29 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+      56: '0x1C60Ec7fcDb05c2c5592c1d2dE2ee551AfC48f0c',
     },
     token: tokens.busd,
+    quoteToken: tokens.wbnb,
+  },
+  {
+    pid: 3,
+    lpSymbol: 'USDT-BUSD LP',
+    lpAddresses: {
+      97: '0x2f7682b64b88149ba3250aee32db712964de5fa9',
+      56: '0x436e40801083B254f0e9c4b1116F97585d0a24d5',
+    },
+    token: tokens.busd,
+    quoteToken: tokens.wbnb,
+  },
+  {
+    pid: 4,
+    lpSymbol: 'BTCB-BUSD LP',
+    lpAddresses: {
+      97: '0xcbe3282a562e23b8c61ed04bb72ffdbb9233b1ce',
+      56: '0xB2053fBcec166207abF673eE8874945Dc759b32D',
+    },
+    token: tokens.kalo,
     quoteToken: tokens.wbnb,
   },
   {
@@ -69,16 +80,7 @@ const farms: FarmConfig[] = [
     token: tokens.ltc,
     quoteToken: tokens.wbnb,
   },
-  {
-    pid: 2222,
-    lpSymbol: 'BUSD-BNB LP',
-    lpAddresses: {
-      97: '0x2f7682b64b88149ba3250aee32db712964de5fa9',
-      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
-    },
-    token: tokens.busd,
-    quoteToken: tokens.wbnb,
-  },
+  
   {
     pid: 555,
     lpSymbol: 'DOT-BNB LP',
