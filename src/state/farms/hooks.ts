@@ -99,6 +99,6 @@ export const usePriceBnbBusd = (): BigNumber => {
 }
 
 export const usePriceKaloBusd = (): BigNumber => {
-  const kaloBnbFarm = useFarmFromPid(4)
-  return new BigNumber(kaloBnbFarm.token.busdPrice)
+  const xaloBnbFarm = useFarmFromPid(4)
+  return new BigNumber(xaloBnbFarm.token.busdPrice)
 }

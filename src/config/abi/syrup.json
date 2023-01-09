@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "contract KalosToken",
-        "name": "_kalo",
+        "name": "_xalo",
         "type": "address"
       }
     ],
@@ -242,7 +242,7 @@
   },
   {
     "inputs": [],
-    "name": "kalo",
+    "name": "xalo",
     "outputs": [
       {
         "internalType": "contract KaloToken",

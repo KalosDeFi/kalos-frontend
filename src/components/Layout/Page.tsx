@@ -26,9 +26,9 @@ const StyledPage = styled(Container)`
 const PageMeta = () => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const kaloPriceUsd = usePriceKaloBusd()
-  const kaloPriceUsdDisplay = kaloPriceUsd.gt(0)
-    ? `$${kaloPriceUsd.toNumber().toLocaleString(undefined, {
+  const xaloPriceUsd = usePriceKaloBusd()
+  const xaloPriceUsdDisplay = xaloPriceUsd.gt(0)
+    ? `$${xaloPriceUsd.toNumber().toLocaleString(undefined, {
         minimumFractionDigits: 3,
         maximumFractionDigits: 3,
       })}`
@@ -36,7 +36,7 @@ const PageMeta = () => {
 
   const pageMeta = getCustomMeta(pathname, t) || {}
   const { title, description, image } = { ...DEFAULT_META, ...pageMeta }
-  const pageTitle = kaloPriceUsdDisplay ? [title, kaloPriceUsdDisplay].join(' - ') : title
+  const pageTitle = xaloPriceUsdDisplay ? [title, xaloPriceUsdDisplay].join(' - ') : title
 
   return (
     <Helmet>

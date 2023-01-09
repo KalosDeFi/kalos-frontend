@@ -33,13 +33,13 @@ const ConfirmProfileCreationModal: React.FC<Props> = ({
   const profileContract = useProfile()
   const dispatch = useAppDispatch()
   const { toastSuccess } = useToast()
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await kaloContract.allowance(account, profileContract.address)
+          const response = await xaloContract.allowance(account, profileContract.address)
           const currentAllowance = new BigNumber(response.toString())
           return currentAllowance.gte(minimumCakeRequired)
         } catch (error) {
@@ -47,7 +47,7 @@ const ConfirmProfileCreationModal: React.FC<Props> = ({
         }
       },
       onApprove: () => {
-        return kaloContract.approve(profileContract.address, allowance.toJSON())
+        return xaloContract.approve(profileContract.address, allowance.toJSON())
       },
       onConfirm: () => {
         return profileContract.createProfile(teamId, selectedNft.nftAddress, selectedNft.tokenId)

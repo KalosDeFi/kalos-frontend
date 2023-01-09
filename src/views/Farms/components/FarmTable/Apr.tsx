@@ -13,7 +13,7 @@ export interface AprProps {
   lpLabel: string
   tokenAddress?: Address
   quoteTokenAddress?: Address
-  kaloPrice: BigNumber
+  xaloPrice: BigNumber
   originalValue: number
   hideButton?: boolean
 }
@@ -45,7 +45,7 @@ const Apr: React.FC<AprProps> = ({
   lpLabel,
   tokenAddress,
   quoteTokenAddress,
-  kaloPrice,
+  xaloPrice,
   originalValue,
   hideButton = false,
 }) => {
@@ -60,7 +60,7 @@ const Apr: React.FC<AprProps> = ({
           {!hideButton && (
             <ApyButton
               lpLabel={lpLabel}
-              kaloPrice={kaloPrice}
+              xaloPrice={xaloPrice}
               apr={originalValue}
               displayApr={value}
               addLiquidityUrl={addLiquidityUrl}

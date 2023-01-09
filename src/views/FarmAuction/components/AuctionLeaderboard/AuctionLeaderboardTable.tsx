@@ -40,11 +40,11 @@ const GridCell = styled(Flex)<{ isTopPosition: boolean }>`
 
 interface LeaderboardRowProps {
   bidder: Bidder
-  kaloPriceBusd: BigNumber
+  xaloPriceBusd: BigNumber
   isMobile: boolean
 }
 
-const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, kaloPriceBusd, isMobile }) => {
+const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, xaloPriceBusd, isMobile }) => {
   const { t } = useTranslation()
   const { isTopPosition, position, samePositionAsAbove, farmName, tokenName, amount, projectSite, lpAddress, account } =
     bidder
@@ -75,9 +75,9 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, kaloPriceBusd, 
           <Text bold textTransform="uppercase" width="100%" textAlign="right">
             {getBalanceNumber(amount).toLocaleString()}
           </Text>
-          {kaloPriceBusd.gt(0) ? (
+          {xaloPriceBusd.gt(0) ? (
             <Text fontSize="12px" color="textSubtle" textAlign="right">
-              ~${getBalanceNumber(amount.times(kaloPriceBusd)).toLocaleString('en', { maximumFractionDigits: 0 })}
+              ~${getBalanceNumber(amount.times(xaloPriceBusd)).toLocaleString('en', { maximumFractionDigits: 0 })}
             </Text>
           ) : (
             <Flex justifyContent="flex-end">
@@ -111,7 +111,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, kaloPriceBusd, 
 
 const AuctionLeaderboardTable: React.FC<{ bidders: Bidder[]; noBidsText: string }> = ({ bidders, noBidsText }) => {
   const [visibleBidders, setVisibleBidders] = useState(10)
-  const kaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceKaloBusd()
   const { t } = useTranslation()
 
   const { isXs, isSm } = useMatchBreakpoints()
@@ -151,7 +151,7 @@ const AuctionLeaderboardTable: React.FC<{ bidders: Bidder[]; noBidsText: string 
         <Box />
         {/* Rows */}
         {bidders.slice(0, visibleBidders).map((bidder) => (
-          <LeaderboardRow key={bidder.account} bidder={bidder} kaloPriceBusd={kaloPriceBusd} isMobile={isXs || isSm} />
+          <LeaderboardRow key={bidder.account} bidder={bidder} xaloPriceBusd={xaloPriceBusd} isMobile={isXs || isSm} />
         ))}
       </LeaderboardContainer>
       <Flex mt="16px" px="24px" flexDirection="column" justifyContent="center" alignItems="center">

@@ -56,8 +56,8 @@ export const useTotalSupply = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const kaloContract = getKaloContract()
-      const supply = await kaloContract.totalSupply()
+      const xaloContract = getKaloContract()
+      const supply = await xaloContract.totalSupply()
       setTotalSupply(new BigNumber(supply.toString()))
     }
 

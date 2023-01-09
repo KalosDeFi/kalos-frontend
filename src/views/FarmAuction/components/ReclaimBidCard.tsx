@@ -24,7 +24,7 @@ const ReclaimBidCard: React.FC = () => {
 
   const [reclaimableAuction, checkForNextReclaimableAuction] = useReclaimAuctionBid()
 
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
   const farmAuctionContract = useFarmAuctionContract()
 
   const { toastSuccess } = useToast()
@@ -32,7 +32,7 @@ const ReclaimBidCard: React.FC = () => {
   const { isApproving, isApproved, isConfirming, handleApprove, handleConfirm } = useApproveConfirmTransaction({
     onRequiresApproval: async () => {
       try {
-        const response = await kaloContract.allowance(account, farmAuctionContract.address)
+        const response = await xaloContract.allowance(account, farmAuctionContract.address)
         const currentAllowance = ethersToBigNumber(response)
         return currentAllowance.gt(0)
       } catch (error) {
@@ -40,7 +40,7 @@ const ReclaimBidCard: React.FC = () => {
       }
     },
     onApprove: () => {
-      return kaloContract.approve(farmAuctionContract.address, ethers.constants.MaxUint256)
+      return xaloContract.approve(farmAuctionContract.address, ethers.constants.MaxUint256)
     },
     onApproveSuccess: async () => {
       toastSuccess(t('Contract approved - you can now reclaim your bid!'))

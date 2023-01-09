@@ -101,12 +101,12 @@ const StyledImage = styled(Image)`
 `
 const NUMBER_OF_FARMS_VISIBLE = 12
 
-const getDisplayApr = (kaloRewardsApr?: number, lpRewardsApr?: number) => {
-  if (kaloRewardsApr && lpRewardsApr) {
-    return (kaloRewardsApr + lpRewardsApr).toLocaleString('en-US', { maximumFractionDigits: 2 })
+const getDisplayApr = (xaloRewardsApr?: number, lpRewardsApr?: number) => {
+  if (xaloRewardsApr && lpRewardsApr) {
+    return (xaloRewardsApr + lpRewardsApr).toLocaleString('en-US', { maximumFractionDigits: 2 })
   }
-  if (kaloRewardsApr) {
-    return kaloRewardsApr.toLocaleString('en-US', { maximumFractionDigits: 2 })
+  if (xaloRewardsApr) {
+    return xaloRewardsApr.toLocaleString('en-US', { maximumFractionDigits: 2 })
   }
   return null
 }
@@ -116,7 +116,7 @@ const Farms: React.FC = () => {
   const { pathname } = useLocation()
   const { t } = useTranslation()
   const { data: farmsLP, userDataLoaded } = useFarms()
-  const kaloPrice = usePriceKaloBusd()
+  const xaloPrice = usePriceKaloBusd()
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = usePersistState(ViewMode.CARD, { localStorageKey: 'pancake_farm_view' })
   const { account } = useWeb3React()
@@ -161,11 +161,11 @@ const Farms: React.FC = () => {
           return farm
         }
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-        const { kaloRewardsApr, lpRewardsApr } = isActive
-          ? getFarmApr(new BigNumber(farm.poolWeight), kaloPrice, totalLiquidity, farm.lpAddresses[ChainId.MAINNET])
-          : { kaloRewardsApr: 0, lpRewardsApr: 0 }
+        const { xaloRewardsApr, lpRewardsApr } = isActive
+          ? getFarmApr(new BigNumber(farm.poolWeight), xaloPrice, totalLiquidity, farm.lpAddresses[ChainId.MAINNET])
+          : { xaloRewardsApr: 0, lpRewardsApr: 0 }
 
-        return { ...farm, apr: kaloRewardsApr, lpRewardsApr, liquidity: totalLiquidity }
+        return { ...farm, apr: xaloRewardsApr, lpRewardsApr, liquidity: totalLiquidity }
       })
 
       if (query) {
@@ -176,7 +176,7 @@ const Farms: React.FC = () => {
       }
       return farmsToDisplayWithAPR
     },
-    [kaloPrice, query, isActive],
+    [xaloPrice, query, isActive],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -279,7 +279,7 @@ const Farms: React.FC = () => {
         lpLabel,
         tokenAddress,
         quoteTokenAddress,
-        kaloPrice,
+        xaloPrice,
         originalValue: farm.apr,
       },
       farm: {
@@ -342,7 +342,7 @@ const Farms: React.FC = () => {
               key={farm.pid}
               farm={farm}
               displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
-              kaloPrice={kaloPrice}
+              xaloPrice={xaloPrice}
               account={account}
               removed={false}
             />
@@ -354,7 +354,7 @@ const Farms: React.FC = () => {
               key={farm.pid}
               farm={farm}
               displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
-              kaloPrice={kaloPrice}
+              xaloPrice={xaloPrice}
               account={account}
               removed
             />
@@ -366,7 +366,7 @@ const Farms: React.FC = () => {
               key={farm.pid}
               farm={farm}
               displayApr={getDisplayApr(farm.apr, farm.lpRewardsApr)}
-              kaloPrice={kaloPrice}
+              xaloPrice={xaloPrice}
               account={account}
               removed
             />

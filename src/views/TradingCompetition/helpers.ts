@@ -11,10 +11,10 @@ export const localiseTradingVolume = (value: number, decimals = 0) => {
 export const useCompetitionCakeRewards = (userCakeReward: ReactText) => {
   const cakeAsBigNumber = new BigNumber(userCakeReward as string)
   const cakeBalance = getBalanceNumber(cakeAsBigNumber)
-  const kaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceKaloBusd()
   return {
     cakeReward: cakeBalance,
-    dollarValueOfCakeReward: kaloPriceBusd.gt(0) ? cakeBalance * kaloPriceBusd.toNumber() : null,
+    dollarValueOfCakeReward: xaloPriceBusd.gt(0) ? cakeBalance * xaloPriceBusd.toNumber() : null,
   }
 }
 

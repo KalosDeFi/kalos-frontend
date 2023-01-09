@@ -77,14 +77,14 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const [maxTicketPurchaseExceeded, setMaxTicketPurchaseExceeded] = useState(false)
   const [userNotEnoughKalo, setUserNotEnoughKalo] = useState(false)
   const lotteryContract = useLotteryV2Contract()
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
   const { toastSuccess } = useToast()
   const { balance: userKalo, fetchStatus } = useTokenBalance(getKaloAddress())
   // balance from useTokenBalance causes rerenders in effects as a new BigNumber is instanciated on each render, hence memoising it using the stringified value below.
   const stringifiedUserKalo = userKalo.toJSON()
   const memoisedUserKalo = useMemo(() => new BigNumber(stringifiedUserKalo), [stringifiedUserKalo])
 
-  const kaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceKaloBusd()
   const dispatch = useAppDispatch()
   const hasFetchedBalance = fetchStatus === FetchStatus.SUCCESS
   const userCakeDisplayBalance = getFullDisplayBalance(userKalo, 18, 3)
@@ -239,7 +239,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await kaloContract.allowance(account, lotteryContract.address)
+          const response = await xaloContract.allowance(account, lotteryContract.address)
           const currentAllowance = ethersToBigNumber(response)
           return currentAllowance.gt(0)
         } catch (error) {
@@ -247,7 +247,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
         }
       },
       onApprove: () => {
-        return kaloContract.approve(lotteryContract.address, ethers.constants.MaxUint256)
+        return xaloContract.approve(lotteryContract.address, ethers.constants.MaxUint256)
       },
       onApproveSuccess: async () => {
         toastSuccess(t('Contract enabled - you can now purchase tickets'))
@@ -319,7 +319,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
         value={ticketsToBuy}
         onUserInput={handleInputChange}
         currencyValue={
-          kaloPriceBusd.gt(0) &&
+          xaloPriceBusd.gt(0) &&
           `~${ticketsToBuy ? getFullDisplayBalance(priceTicketInCake.times(new BigNumber(ticketsToBuy))) : '0.00'} KALO`
         }
       />

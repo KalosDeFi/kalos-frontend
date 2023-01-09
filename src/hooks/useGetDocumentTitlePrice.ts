@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { useKaloBusdPrice } from 'hooks/useBUSDPrice'
 
 const useGetDocumentTitlePrice = () => {
-  const kaloPriceBusd = useKaloBusdPrice()
+  const xaloPriceBusd = useKaloBusdPrice()
   useEffect(() => {
-    const kaloPriceBusdString = kaloPriceBusd ? kaloPriceBusd.toFixed(2) : ''
-    document.title = `Pancake Swap - ${kaloPriceBusdString}`
-  }, [kaloPriceBusd])
+    const xaloPriceBusdString = xaloPriceBusd ? xaloPriceBusd.toFixed(2) : ''
+    document.title = `Pancake Swap - ${xaloPriceBusdString}`
+  }, [xaloPriceBusd])
 }
 export default useGetDocumentTitlePrice

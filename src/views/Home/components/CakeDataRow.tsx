@@ -47,17 +47,17 @@ const CakeDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getKaloAddress()))
-  const kaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
-  const kaloPriceBusd = usePriceKaloBusd()
-  const mcap = kaloPriceBusd.times(kaloSupply)
+  const xaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  const xaloPriceBusd = usePriceKaloBusd()
+  const mcap = xaloPriceBusd.times(xaloSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   return (
     <Grid>
       <Flex flexDirection="column">
         <Text color="textSubtle">{t('Total supply')}</Text>
-        {kaloSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={kaloSupply} />
+        {xaloSupply ? (
+          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={xaloSupply} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
@@ -81,7 +81,7 @@ const CakeDataRow = () => {
       <StyledColumn>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%kaloEmissions%/block', { kaloEmissions: emissionsPerBlock })}</Heading>
+        <Heading scale="lg">{t('%xaloEmissions%/block', { xaloEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )

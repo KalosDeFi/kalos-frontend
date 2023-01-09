@@ -50,9 +50,9 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
   const [stakeAmount, setStakeAmount] = useState('')
   const [percent, setPercent] = useState(0)
   const { hasUnstakingFee } = useWithdrawalFeeTimer(parseInt(lastDepositedTime, 10), userShares)
-  const kaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceKaloBusd()
   const usdValueStaked =
-    kaloPriceBusd.gt(0) && stakeAmount ? formatNumber(new BigNumber(stakeAmount).times(kaloPriceBusd).toNumber()) : ''
+    xaloPriceBusd.gt(0) && stakeAmount ? formatNumber(new BigNumber(stakeAmount).times(xaloPriceBusd).toNumber()) : ''
 
   const handleStakeInputChange = (input: string) => {
     if (input) {
@@ -170,7 +170,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
       <BalanceInput
         value={stakeAmount}
         onUserInput={handleStakeInputChange}
-        currencyValue={kaloPriceBusd.gt(0) && `~${usdValueStaked || 0} USD`}
+        currencyValue={xaloPriceBusd.gt(0) && `~${usdValueStaked || 0} USD`}
         decimals={stakingToken.decimals}
       />
       <Text mt="8px" ml="auto" color="textSubtle" fontSize="12px" mb="8px">

@@ -50,10 +50,10 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
   const { t } = useTranslation()
   const { toastSuccess, toastError } = useToast()
   const cakeVaultContract = useCakeVaultContract()
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
 
   const handleApprove = async () => {
-    const tx = await kaloContract.approve(cakeVaultContract.address, ethers.constants.MaxUint256)
+    const tx = await xaloContract.approve(cakeVaultContract.address, ethers.constants.MaxUint256)
     setRequestedApproval(true)
     const receipt = await tx.wait()
     if (receipt.status) {
@@ -72,13 +72,13 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
 export const useCheckVaultApprovalStatus = () => {
   const [isVaultApproved, setIsVaultApproved] = useState(false)
   const { account } = useWeb3React()
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
   const cakeVaultContract = useCakeVaultContract()
   const { lastUpdated, setLastUpdated } = useLastUpdated()
   useEffect(() => {
     const checkApprovalStatus = async () => {
       try {
-        const response = await kaloContract.allowance(account, cakeVaultContract.address)
+        const response = await xaloContract.allowance(account, cakeVaultContract.address)
         const currentAllowance = new BigNumber(response.toString())
         setIsVaultApproved(currentAllowance.gt(0))
       } catch (error) {
@@ -87,7 +87,7 @@ export const useCheckVaultApprovalStatus = () => {
     }
 
     checkApprovalStatus()
-  }, [account, kaloContract, cakeVaultContract, lastUpdated])
+  }, [account, xaloContract, cakeVaultContract, lastUpdated])
 
   return { isVaultApproved, setLastUpdated }
 }

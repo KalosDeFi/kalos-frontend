@@ -64,9 +64,9 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
   const { balance: userKalo, fetchStatus } = useTokenBalance(getKaloAddress())
   const userCakeBalance = getBalanceAmount(userKalo)
 
-  const kaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceKaloBusd()
   const farmAuctionContract = useFarmAuctionContract()
-  const kaloContract = useKalo()
+  const xaloContract = useKalo()
 
   const { toastSuccess } = useToast()
 
@@ -101,7 +101,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await kaloContract.allowance(account, farmAuctionContract.address)
+          const response = await xaloContract.allowance(account, farmAuctionContract.address)
           const currentAllowance = ethersToBigNumber(response)
           return currentAllowance.gt(0)
         } catch (error) {
@@ -109,7 +109,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
         }
       },
       onApprove: () => {
-        return kaloContract.approve(farmAuctionContract.address, ethers.constants.MaxUint256)
+        return xaloContract.approve(farmAuctionContract.address, ethers.constants.MaxUint256)
       },
       onApproveSuccess: async () => {
         toastSuccess(t('Contract approved - you can now place your bid!'))
@@ -165,8 +165,8 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
           value={bid}
           onUserInput={handleInputChange}
           currencyValue={
-            kaloPriceBusd.gt(0) &&
-            `~${bid ? kaloPriceBusd.times(new BigNumber(bid)).toNumber().toLocaleString() : '0.00'} USD`
+            xaloPriceBusd.gt(0) &&
+            `~${bid ? xaloPriceBusd.times(new BigNumber(bid)).toNumber().toLocaleString() : '0.00'} USD`
           }
         />
         <Flex justifyContent="flex-end" mt="8px">

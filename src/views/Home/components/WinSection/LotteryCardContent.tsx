@@ -27,14 +27,14 @@ const LotteryCardContent = () => {
   const { slowRefresh } = useRefresh()
   const [lotteryId, setLotteryId] = useState<string>(null)
   const [currentLotteryPrize, setCurrentLotteryPrize] = useState<BigNumber>(null)
-  const kaloPriceBusdAsString = usePriceKaloBusd().toString()
+  const xaloPriceBusdAsString = usePriceKaloBusd().toString()
 
-  const cakePrizesText = t('%cakePrizeInUsd% in CAKE prizes this round', { cakePrizeInUsd: kaloPriceBusdAsString })
-  const [pretext, prizesThisRound] = cakePrizesText.split(kaloPriceBusdAsString)
+  const cakePrizesText = t('%cakePrizeInUsd% in CAKE prizes this round', { cakePrizeInUsd: xaloPriceBusdAsString })
+  const [pretext, prizesThisRound] = cakePrizesText.split(xaloPriceBusdAsString)
 
-  const kaloPriceBusd = useMemo(() => {
-    return new BigNumber(kaloPriceBusdAsString)
-  }, [kaloPriceBusdAsString])
+  const xaloPriceBusd = useMemo(() => {
+    return new BigNumber(xaloPriceBusdAsString)
+  }, [xaloPriceBusdAsString])
 
   useEffect(() => {
     if (isIntersecting) {
@@ -58,14 +58,14 @@ const LotteryCardContent = () => {
     // get public data for current lottery
     const fetchCurrentLotteryPrize = async () => {
       const { amountCollectedInCake } = await fetchLottery(lotteryId)
-      const prizeInBusd = kaloPriceBusd.times(amountCollectedInCake)
+      const prizeInBusd = xaloPriceBusd.times(amountCollectedInCake)
       setCurrentLotteryPrize(prizeInBusd)
     }
 
     if (lotteryId) {
       fetchCurrentLotteryPrize()
     }
-  }, [lotteryId, slowRefresh, setCurrentLotteryPrize, kaloPriceBusd])
+  }, [lotteryId, slowRefresh, setCurrentLotteryPrize, xaloPriceBusd])
 
   return (
     <>
