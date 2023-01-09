@@ -26,7 +26,7 @@ import { fetchUserTicketsAndLotteries } from 'state/lottery'
 import useTheme from 'hooks/useTheme'
 import useTokenBalance, { FetchStatus } from 'hooks/useTokenBalance'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
-import { useKalo, useLotteryV2Contract } from 'hooks/useContract'
+import { useXalo, useLotteryV2Contract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import ApproveConfirmButtons, { ButtonArrangement } from 'views/Profile/components/ApproveConfirmButtons'
@@ -77,7 +77,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const [maxTicketPurchaseExceeded, setMaxTicketPurchaseExceeded] = useState(false)
   const [userNotEnoughKalo, setUserNotEnoughKalo] = useState(false)
   const lotteryContract = useLotteryV2Contract()
-  const xaloContract = useKalo()
+  const xaloContract = useXalo()
   const { toastSuccess } = useToast()
   const { balance: userKalo, fetchStatus } = useTokenBalance(getXaloAddress())
   // balance from useTokenBalance causes rerenders in effects as a new BigNumber is instanciated on each render, hence memoising it using the stringified value below.

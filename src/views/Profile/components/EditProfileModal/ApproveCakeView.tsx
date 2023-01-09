@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AutoRenewIcon, Button, Flex, InjectedModalProps, Text } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { useKalo } from 'hooks/useContract'
+import { useXalo } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { useProfile } from 'state/profile/hooks'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'
@@ -18,7 +18,7 @@ const ApproveCakePage: React.FC<ApproveCakePageProps> = ({ goToChange, onDismiss
   const { profile } = useProfile()
   const { t } = useTranslation()
   const { numberCakeToUpdate, numberCakeToReactivate } = useGetProfileCosts()
-  const kaloContract = useKalo()
+  const kaloContract = useXalo()
   const { toastError } = useToast()
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate
 

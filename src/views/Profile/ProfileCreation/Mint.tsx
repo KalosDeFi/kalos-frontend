@@ -5,7 +5,7 @@ import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import { DEFAULT_TOKEN_DECIMAL } from 'config'
-import { useKalo, useBunnyFactory } from 'hooks/useContract'
+import { useXalo, useBunnyFactory } from 'hooks/useContract'
 import { Nft } from 'config/constants/types'
 import useHasCakeBalance from 'hooks/useHasCakeBalance'
 import nftList from 'config/constants/nfts'
@@ -23,7 +23,7 @@ const Mint: React.FC = () => {
   const { actions, minimumCakeRequired, allowance } = useProfileCreation()
 
   const { account } = useWeb3React()
-  const kaloContract = useKalo()
+  const kaloContract = useXalo()
   const bunnyFactoryContract = useBunnyFactory()
   const { t } = useTranslation()
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeBalanceToMint)

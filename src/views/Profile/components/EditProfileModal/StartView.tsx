@@ -5,7 +5,7 @@ import { useWeb3React } from '@web3-react/core'
 import { Button, Flex, Text, InjectedModalProps } from '@kalosdefi/uikit'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'
-import { useKalo } from 'hooks/useContract'
+import { useXalo } from 'hooks/useContract'
 import { useTranslation } from 'contexts/Localization'
 import useGetProfileCosts from 'views/Profile/hooks/useGetProfileCosts'
 import useHasCakeBalance from 'hooks/useHasCakeBalance'
@@ -48,7 +48,7 @@ const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemo
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeRequired)
   const { t } = useTranslation()
   const { account } = useWeb3React()
-  const kaloContract = useKalo()
+  const kaloContract = useXalo()
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate
 
   /**

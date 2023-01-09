@@ -70,7 +70,7 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
   }, [chainId, currency, ethPair, ethPairState, busdEthPair, busdEthPairState, busdPair, busdPairState, wrapped])
 }
 
-export const useKaloBusdPrice = (): Price | undefined => {
+export const useXaloBusdPrice = (): Price | undefined => {
   const { chainId } = useActiveWeb3React()
   const currentChaindId = chainId || ChainId.MAINNET
   const kaloBusdPrice = useBUSDPrice(XALO[currentChaindId])

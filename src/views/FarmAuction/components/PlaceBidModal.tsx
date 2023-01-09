@@ -11,7 +11,7 @@ import { ethersToBigNumber } from 'utils/bigNumber'
 import useTheme from 'hooks/useTheme'
 import useTokenBalance, { FetchStatus } from 'hooks/useTokenBalance'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
-import { useKalo, useFarmAuctionContract } from 'hooks/useContract'
+import { useXalo, useFarmAuctionContract } from 'hooks/useContract'
 import { DEFAULT_TOKEN_DECIMAL } from 'config'
 import useToast from 'hooks/useToast'
 import ConnectWalletButton from 'components/ConnectWalletButton'
@@ -66,7 +66,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
 
   const xaloPriceBusd = usePriceXaloBusd()
   const farmAuctionContract = useFarmAuctionContract()
-  const xaloContract = useKalo()
+  const xaloContract = useXalo()
 
   const { toastSuccess } = useToast()
 

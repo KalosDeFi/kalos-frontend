@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useKalo, useSousChef, useCakeVaultContract } from 'hooks/useContract'
+import { useXalo, useSousChef, useCakeVaultContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import useLastUpdated from 'hooks/useLastUpdated'
 
@@ -50,7 +50,7 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
   const { t } = useTranslation()
   const { toastSuccess, toastError } = useToast()
   const cakeVaultContract = useCakeVaultContract()
-  const xaloContract = useKalo()
+  const xaloContract = useXalo()
 
   const handleApprove = async () => {
     const tx = await xaloContract.approve(cakeVaultContract.address, ethers.constants.MaxUint256)
@@ -72,7 +72,7 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
 export const useCheckVaultApprovalStatus = () => {
   const [isVaultApproved, setIsVaultApproved] = useState(false)
   const { account } = useWeb3React()
-  const xaloContract = useKalo()
+  const xaloContract = useXalo()
   const cakeVaultContract = useCakeVaultContract()
   const { lastUpdated, setLastUpdated } = useLastUpdated()
   useEffect(() => {
