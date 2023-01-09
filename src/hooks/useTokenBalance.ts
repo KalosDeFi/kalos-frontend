@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { getBep20Contract, getKaloContract } from 'utils/contractHelpers'
+import { getBep20Contract, getXaloContract } from 'utils/contractHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { simpleRpcProvider } from 'utils/providers'
 import useRefresh from './useRefresh'
@@ -56,7 +56,7 @@ export const useTotalSupply = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const xaloContract = getKaloContract()
+      const xaloContract = getXaloContract()
       const supply = await xaloContract.totalSupply()
       setTotalSupply(new BigNumber(supply.toString()))
     }
