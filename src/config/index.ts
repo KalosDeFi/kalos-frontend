@@ -21,9 +21,9 @@ export const BASE_BSC_SCAN_URLS = {
 // 9 CAKE per block goes to Yield farms and lottery
 // CAKE_PER_BLOCK in config/index.ts = 40 as we only change the amount sent to the burn pool which is effectively a farm.
 // CAKE/Block in src/views/Home/components/CakeDataRow.tsx = 19 (40 - Amount sent to burn pool)
-export const KALO_PER_BLOCK = new BigNumber(100)
+export const XALO_PER_BLOCK = new BigNumber(100)
 export const BLOCKS_PER_YEAR = new BigNumber((60 / BSC_BLOCK_TIME) * 60 * 24 * 365) // 10512000
-export const KALO_PER_YEAR = KALO_PER_BLOCK.times(BLOCKS_PER_YEAR)
+export const XALO_PER_YEAR = XALO_PER_BLOCK.times(BLOCKS_PER_YEAR)
 export const BASE_URL = 'https://pancakeswap.finance'
 export const BASE_ADD_LIQUIDITY_URL = `${BASE_URL}/add`
 export const BASE_LIQUIDITY_POOL_URL = `${BASE_URL}/pool`

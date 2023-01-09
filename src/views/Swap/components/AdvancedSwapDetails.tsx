@@ -60,7 +60,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
                 <Text mb="12px">For each trade a 0.30% fee is paid</Text>
                 <Text>- 0.25% to LP token holders</Text>
                 <Text>- 0.025% to the Treasury</Text>
-                <Text>- 0.025% towards KALO buyback and burn</Text>
+                <Text>- 0.025% towards XALO buyback and burn</Text>
               </>
             }
             ml="4px"

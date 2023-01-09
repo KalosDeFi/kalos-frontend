@@ -104,7 +104,7 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('KALOS')}
+            {t('XALOS')}
           </Heading>
           <Heading scale="xxl" color="secondary" mb="24px">
             {t('PROTOCOL.')}

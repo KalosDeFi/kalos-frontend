@@ -87,9 +87,9 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
 
   useEffect(() => {
     if (userNotEnoughKalo) {
-      setErrorText(t('Insufficient KALO balance'))
+      setErrorText(t('Insufficient XALO balance'))
     } else if (!isMoreThanInitialBidAmount && isFirstBid) {
-      setErrorText(t('First bid must be %initialBidAmount% KALO or more.', { initialBidAmount }))
+      setErrorText(t('First bid must be %initialBidAmount% XALO or more.', { initialBidAmount }))
     } else if (!isMultipleOfTen) {
       setErrorText(t('Bid must be a multiple of 10'))
     } else {
@@ -139,7 +139,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
       <ExistingInfo>
         <Flex justifyContent="space-between">
           <Text>{t('Your existing bid')}</Text>
-          <Text>{t('%num% KALO', { num: getBalanceNumber(amount).toLocaleString() })}</Text>
+          <Text>{t('%num% XALO', { num: getBalanceNumber(amount).toLocaleString() })}</Text>
         </Flex>
         <Flex justifyContent="space-between">
           <Text>{t('Your position')}</Text>
@@ -156,7 +156,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
         </Flex>
         {isFirstBid && (
           <Text pb="8px" small>
-            {t('First bid must be %initialBidAmount% KALO or more.', { initialBidAmount })}
+            {t('First bid must be %initialBidAmount% XALO or more.', { initialBidAmount })}
           </Text>
         )}
         <BalanceInput

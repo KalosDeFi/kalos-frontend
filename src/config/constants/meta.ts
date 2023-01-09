@@ -4,7 +4,7 @@ import { PageMeta } from './types'
 export const DEFAULT_META: PageMeta = {
   title: 'KalosDeFi',
   description:
-    'Kalos Protocol AMM on BSC by user count! Earn KALO through yield farming and more, then stake it in Pools to earn more tokens!',
+    'Kalos Protocol AMM on BSC by user count! Earn XALO through yield farming and more, then stake it in Pools to earn more tokens!',
   image: 'https://pancakeswap.finance/images/hero.png',
 }
 

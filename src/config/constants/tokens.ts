@@ -846,7 +846,7 @@ const tokens = {
     projectLink: 'https://pancakeswap.finance/',
   },
   xkalo: {
-    symbol: 'XKALO',
+    symbol: 'XXALO',
     address: {
       56: '0xD5b9Cd8518ADc86853460Ef1B94D8e6cAD93C497',
       97: '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',

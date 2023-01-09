@@ -19,7 +19,7 @@ export const swapSectionData: SalesSectionProps = {
     attributes: [
       { src: 'BNB', alt: 'BNB token' },
       { src: 'BTC', alt: 'BTC token' },
-      { src: 'KALO', alt: 'KALOS token' },
+      { src: 'XALO', alt: 'XALOS token' },
     ],
   },
 }
@@ -49,13 +49,13 @@ export const earnSectionData: SalesSectionProps = {
 }
 
 export const cakeSectionData: SalesSectionProps = {
-  headingText: 'KALO makes our world go round.',
+  headingText: 'XALO makes our world go round.',
   bodyText:
-    'KALO token is at the heart of Kalos Protocol. Buy it, farm it, spend it, stake it... , you can even vote with it!',
+    'XALO token is at the heart of Kalos Protocol. Buy it, farm it, spend it, stake it... , you can even vote with it!',
   reverse: false,
   primaryButton: {
     to: '/swap?outputCurrency=0xFf64F848115A682e41EAeb36bCE387eeBB3770E5',
-    text: 'Buy KALO',
+    text: 'Buy XALO',
     external: false,
   },
   secondaryButton: {
@@ -69,7 +69,7 @@ export const cakeSectionData: SalesSectionProps = {
     attributes: [
       { src: 'bottom-right', alt: 'Small 3d pancake' },
       { src: 'top-right', alt: 'Small 3d pancake' },
-      { src: 'coin', alt: 'KALO token' },
+      { src: 'coin', alt: 'XALO token' },
       { src: 'top-left', alt: 'Small 3d pancake' },
     ],
   },

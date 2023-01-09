@@ -51,11 +51,11 @@ const BountyCard = () => {
       <Text mb="16px">{t('This bounty is given as a reward for providing a service to other users.')}</Text>
       <Text mb="16px">
         {t(
-          'Whenever you successfully claim the bounty, you’re also helping out by activating the Auto KALO Pool’s compounding function for everyone.',
+          'Whenever you successfully claim the bounty, you’re also helping out by activating the Auto XALO Pool’s compounding function for everyone.',
         )}
       </Text>
       <Text style={{ fontWeight: 'bold' }}>
-        {t('Auto-Compound Bounty: %fee%% of all Auto KALO pool users pending yield', { fee: fee / 100 })}
+        {t('Auto-Compound Bounty: %fee%% of all Auto XALO pool users pending yield', { fee: fee / 100 })}
       </Text>
     </>
   )
@@ -75,7 +75,7 @@ const BountyCard = () => {
           <Flex flexDirection="column">
             <Flex alignItems="center" mb="12px">
               <Text fontSize="16px" bold color="textSubtle" mr="4px">
-                {t('Auto KALO Bounty')}
+                {t('Auto XALO Bounty')}
               </Text>
               <Box ref={targetRef}>
                 <HelpIcon color="textSubtle" />

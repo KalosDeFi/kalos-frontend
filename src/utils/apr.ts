@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { BLOCKS_PER_YEAR, KALO_PER_YEAR } from 'config'
+import { BLOCKS_PER_YEAR, XALO_PER_YEAR } from 'config'
 import lpAprs from 'config/constants/lpAprs.json'
 
 /**
@@ -35,7 +35,7 @@ export const getFarmApr = (
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
 ): { xaloRewardsApr: number; lpRewardsApr: number } => {
-  const yearlyKaloRewardAllocation = KALO_PER_YEAR.times(poolWeight)
+  const yearlyKaloRewardAllocation = XALO_PER_YEAR.times(poolWeight)
   const xaloRewardsApr = yearlyKaloRewardAllocation.times(xaloPriceUsd).div(poolLiquidityUsd).times(100)
   let xaloRewardsAprAsNumber = null
   if (!xaloRewardsApr.isNaN() && xaloRewardsApr.isFinite()) {
