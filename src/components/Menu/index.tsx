@@ -10,7 +10,7 @@ import UserMenu from './UserMenu'
 
 const Menu = (props) => {
   const { isDark, toggleTheme } = useTheme()
-  const xaloPriceUsd = usePricexaloBusd()
+  const xaloPriceUsd = usePriceXaloBusd()
   const { profile } = useProfile()
   const { currentLanguage, setLanguage, t } = useTranslation()
 
