@@ -54,7 +54,7 @@ export const cakeSectionData: SalesSectionProps = {
     'XALO token is at the heart of Kalos Protocol. Buy it, farm it, spend it, stake it... , you can even vote with it!',
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0xFf64F848115A682e41EAeb36bCE387eeBB3770E5',
+    to: '/swap?outputCurrency=0xE9E9b8001d86C36F971d046D64983738599C7385',
     text: 'Buy XALO',
     external: false,
   },
