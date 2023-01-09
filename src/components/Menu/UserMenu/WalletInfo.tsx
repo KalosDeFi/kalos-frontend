@@ -18,7 +18,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { balance } = useGetBnbBalance()
-  const { balance: kaloBalance } = useTokenBalance(getXaloAddress())
+  const { balance: xaloBalance } = useTokenBalance(getXaloAddress())
   const { logout } = useAuth()
 
   const handleLogout = () => {
@@ -46,7 +46,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">
         <Text color="textSubtle">{t('XALO Balance')}</Text>
-        <Text>{getFullDisplayBalance(kaloBalance, 18, 3)}</Text>
+        <Text>{getFullDisplayBalance(xaloBalance, 18, 3)}</Text>
       </Flex>
       <Flex alignItems="center" justifyContent="end" mb="24px">
         <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
