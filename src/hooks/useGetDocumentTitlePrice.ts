@@ -5,7 +5,7 @@ const useGetDocumentTitlePrice = () => {
   const xaloPriceBusd = useXaloBusdPrice()
   useEffect(() => {
     const xaloPriceBusdString = xaloPriceBusd ? xaloPriceBusd.toFixed(2) : ''
-    document.title = `Pancake Swap - ${xaloPriceBusdString}`
+    document.title = `KalosDeFi - ${xaloPriceBusdString}`
   }, [xaloPriceBusd])
 }
 export default useGetDocumentTitlePrice
