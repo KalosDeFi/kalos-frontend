@@ -12,7 +12,7 @@ export const getCakeAddress = () => {
   return getAddress(tokens.cake.address)
 }
 export const getKaloAddress = () => {
-  return getAddress(tokens.kalo.address)
+  return getAddress(tokens.xalo.address)
 }
 export const getMasterChefAddress = () => {
   return getAddress(addresses.masterChef)
