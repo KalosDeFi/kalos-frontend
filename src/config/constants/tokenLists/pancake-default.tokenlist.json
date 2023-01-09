@@ -60,8 +60,8 @@
     },
     {
       "name": "Kalos Token",
-      "symbol": "KALO",
-      "address": "0xFf64F848115A682e41EAeb36bCE387eeBB3770E5",
+      "symbol": "XALO",
+      "address": "0xE9E9b8001d86C36F971d046D64983738599C7385",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xFf64F848115A682e41EAeb36bCE387eeBB3770E5.png"
