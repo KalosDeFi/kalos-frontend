@@ -4,11 +4,11 @@ import { PoolConfig, PoolCategory } from './types'
 const pools: PoolConfig[] = [
   {
     sousId: 0,
-    stakingToken: tokens.kalo,
-    earningToken: tokens.kalo,
+    stakingToken: tokens.xalo,
+    earningToken: tokens.xalo,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x1172fAC86615CF70A941896F36d889771B8B9EF7',
+      56: '0xeD3593fEE42ECe382e2D7D327F26234c82d9Ff2D',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

@@ -40,11 +40,11 @@ const farms: FarmConfig[] = [
     pid: 3,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
-      97: '0x2f7682b64b88149ba3250aee32db712964de5fa9',
+      97: '0xE66790075ad839978fEBa15D4d8bB2b415556a1D',
       56: '0x436e40801083B254f0e9c4b1116F97585d0a24d5',
     },
     token: tokens.usdt,
-    quoteToken: tokens.wbnb,
+    quoteToken: tokens.busd,
   },
   {
     pid: 4,
@@ -111,16 +111,7 @@ const farms: FarmConfig[] = [
     token: tokens.link,
     quoteToken: tokens.wbnb,
   },
-  {
-    pid: 11,
-    lpSymbol: 'USDT-BUSD LP',
-    lpAddresses: {
-      97: '0xE66790075ad839978fEBa15D4d8bB2b415556a1D',
-      56: '0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd',
-    },
-    token: tokens.usdt,
-    quoteToken: tokens.busd,
-  },
+  
   {
     pid: 14,
     lpSymbol: 'ETH-BNB LP',
