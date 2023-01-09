@@ -1,7 +1,7 @@
 import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@kalosdefi/sdk'
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-import { BUSD, KALO } from '../config/constants/tokens'
+import { BUSD, XALO } from '../config/constants/tokens'
 import { PairState, usePairs } from './usePairs'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 
@@ -73,6 +73,6 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
 export const useKaloBusdPrice = (): Price | undefined => {
   const { chainId } = useActiveWeb3React()
   const currentChaindId = chainId || ChainId.MAINNET
-  const kaloBusdPrice = useBUSDPrice(KALO[currentChaindId])
+  const kaloBusdPrice = useBUSDPrice(XALO[currentChaindId])
   return kaloBusdPrice
 }
