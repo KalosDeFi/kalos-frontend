@@ -25,6 +25,7 @@ const farms: FarmConfig[] = [
     },
     token: tokens.cake,
     quoteToken: tokens.wbnb,
+    multiplier: '2',
   },
   {
     pid: 2,
