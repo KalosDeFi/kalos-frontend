@@ -94,7 +94,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, xaloPriceBusd, 
             </SubMenuItem>
           )}
           {lpAddress && (
-            <SubMenuItem as={LinkExternal} href={`http://pancakeswap.info/pool/${lpAddress}`} bold={false} color="text">
+            <SubMenuItem as={LinkExternal} href={`http://kalosdefi.finance/info/pool/${lpAddress}`} bold={false} color="text">
               {t('LP Info')}
             </SubMenuItem>
           )}

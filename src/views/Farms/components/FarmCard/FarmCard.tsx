@@ -144,7 +144,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, xaloPric
         <DetailsSection
           removed={removed}
           bscScanAddress={getBscScanLink(lpAddress, 'address')}
-          infoAddress={`https://pancakeswap.info/pool/${lpAddress}`}
+          infoAddress={`https://kalosdefi.finance/info/pool/${lpAddress}`}
           totalValueFormatted={totalValueFormatted}
           lpLabel={lpLabel}
           addLiquidityUrl={addLiquidityUrl}

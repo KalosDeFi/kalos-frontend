@@ -80,7 +80,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   {
     label: t('Info'),
     icon: 'InfoIcon',
-    href: 'https://pancakeswap.info',
+    href: 'https://kalosdefi.finance/info',
   },
   /* {
     label: t('IFO'),
