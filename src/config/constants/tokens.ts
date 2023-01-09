@@ -16,20 +16,20 @@ export const CAKE: { [chainId: number]: Token } = {
     'PancakeSwap Token',
   ),
 }
-export const KALO: { [chainId: number]: Token } = {
+export const XALO: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0xFf64F848115A682e41EAeb36bCE387eeBB3770E5',
+    '0xE9E9b8001d86C36F971d046D64983738599C7385',
     18,
-    'KALO',
+    'XALO',
     'Kalos Token',
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
     '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     18,
-    'KALO',
-    'Kalos Token',
+    'XALO',
+    'Xalos Token',
   ),
 }
 export const BUSD: { [chainId: number]: Token } = {
@@ -89,10 +89,10 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
   },
-  kalo: {
-    symbol: 'KALO',
+  xalo: {
+    symbol: 'XALO',
     address: {
-      56: '0xFf64F848115A682e41EAeb36bCE387eeBB3770E5',
+      56: '0xE9E9b8001d86C36F971d046D64983738599C7385',
       97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     },
     decimals: 18,
