@@ -6,7 +6,7 @@ import { Modal, Text, Flex, BalanceInput, Box, Button, PancakeRoundIcon } from '
 import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
 import { formatNumber, getBalanceAmount, getBalanceNumber } from 'utils/formatBalance'
-import { getKaloAddress } from 'utils/addressHelpers'
+import { getXaloAddress } from 'utils/addressHelpers'
 import { ethersToBigNumber } from 'utils/bigNumber'
 import useTheme from 'hooks/useTheme'
 import useTokenBalance, { FetchStatus } from 'hooks/useTokenBalance'
@@ -61,7 +61,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
   const [userNotEnoughKalo, setUserNotEnoughKalo] = useState(false)
   const [errorText, setErrorText] = useState(null)
 
-  const { balance: userKalo, fetchStatus } = useTokenBalance(getKaloAddress())
+  const { balance: userKalo, fetchStatus } = useTokenBalance(getXaloAddress())
   const userCakeBalance = getBalanceAmount(userKalo)
 
   const xaloPriceBusd = usePriceKaloBusd()

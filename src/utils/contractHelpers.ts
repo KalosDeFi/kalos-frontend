@@ -10,7 +10,7 @@ import {
   getPancakeRabbitsAddress,
   getBunnyFactoryAddress,
   getBunnySpecialAddress,
-  getKaloAddress,
+  getXaloAddress,
   getLotteryV2Address,
   getMasterChefAddress,
   getPointCenterIfoAddress,
@@ -88,7 +88,7 @@ export const getPointCenterIfoContract = (signer?: ethers.Signer | ethers.provid
   return getContract(pointCenterIfo, getPointCenterIfoAddress(), signer)
 }
 export const getKaloContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(cakeAbi, getKaloAddress(), signer)
+  return getContract(cakeAbi, getXaloAddress(), signer)
 }
 export const getProfileContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(profileABI, getPancakeProfileAddress(), signer)

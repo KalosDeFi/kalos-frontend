@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Flex, InjectedModalProps, LinkExternal, Message, Text } from '@kalosdefi/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
-import { getKaloAddress } from 'utils/addressHelpers'
+import { getXaloAddress } from 'utils/addressHelpers'
 import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
 import { getBscScanLink } from 'utils'
@@ -18,7 +18,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { balance } = useGetBnbBalance()
-  const { balance: kaloBalance } = useTokenBalance(getKaloAddress())
+  const { balance: kaloBalance } = useTokenBalance(getXaloAddress())
   const { logout } = useAuth()
 
   const handleLogout = () => {

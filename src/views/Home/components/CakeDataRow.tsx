@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
-import { getKaloAddress } from 'utils/addressHelpers'
+import { getXaloAddress } from 'utils/addressHelpers'
 import { getBalanceNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
 import { usePriceKaloBusd } from 'state/farms/hooks'
 import { Flex, Text, Heading, Skeleton } from '@kalosdefi/uikit'
@@ -46,7 +46,7 @@ const emissionsPerBlock = 100
 const CakeDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
-  const burnedBalance = getBalanceNumber(useBurnedBalance(getKaloAddress()))
+  const burnedBalance = getBalanceNumber(useBurnedBalance(getXaloAddress()))
   const xaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
   const xaloPriceBusd = usePriceKaloBusd()
   const mcap = xaloPriceBusd.times(xaloSupply)
