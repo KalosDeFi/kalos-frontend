@@ -58,12 +58,12 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 5,
-    lpSymbol: 'KALO-BUSD LP',
+    lpSymbol: 'XALO-BUSD LP',
     lpAddresses: {
       97: '0xcbe3282a562e23b8c61ed04bb72ffdbb9233b1ce',
       56: '0x63d56A66a740B7AFff58eEa4B63F059e5D1Bf8F4',
     },
-    token: tokens.kalo,
+    token: tokens.xalo,
     quoteToken: tokens.busd,
   },
   /**
