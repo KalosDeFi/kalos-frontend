@@ -5,7 +5,7 @@ export const DEFAULT_META: PageMeta = {
   title: 'KalosDeFi',
   description:
     'Kalos Protocol AMM on BSC by user count! Earn XALO through yield farming and more, then stake it in Pools to earn more tokens!',
-  image: 'https://pancakeswap.finance/images/hero.png',
+  image: 'https://singular-smakager-6fd53b.netlify.app/images/hero.png',
 }
 
 export const getCustomMeta = (path: string, t: ContextApi['t']): PageMeta => {
