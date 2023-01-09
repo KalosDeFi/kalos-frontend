@@ -1,5 +1,5 @@
 import React from 'react'
-import { Price } from '@kalosdefi/sdk'
+import { Price } from '@kalosdefi/kalos-sdk'
 import { Text, AutoRenewIcon } from '@kalosdefi/uikit'
 import { StyledBalanceMaxMini } from './styleds'
 

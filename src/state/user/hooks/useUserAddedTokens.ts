@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ChainId, Token } from '@kalosdefi/sdk'
+import { ChainId, Token } from '@kalosdefi/kalos-sdk'
 import { useSelector } from 'react-redux'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { AppState } from '../../index'

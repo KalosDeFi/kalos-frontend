@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@kalosdefi/sdk'
+import { Currency, ETHER, Token } from '@kalosdefi/kalos-sdk'
 import { BinanceIcon } from '@kalosdefi/uikit'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'

@@ -1,4 +1,4 @@
-import { Token as SDKToken, Pair, ChainId } from '@kalosdefi/sdk'
+import { Token as SDKToken, Pair, ChainId } from '@kalosdefi/kalos-sdk'
 import tokens from './tokens'
 import { FarmAuctionBidderConfig, Token } from './types'
 

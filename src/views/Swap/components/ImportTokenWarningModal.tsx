@@ -1,5 +1,5 @@
 import React from 'react'
-import { Token } from '@kalosdefi/sdk'
+import { Token } from '@kalosdefi/kalos-sdk'
 import { Modal, InjectedModalProps } from '@kalosdefi/uikit'
 import ImportToken from 'components/SearchModal/ImportToken'
 

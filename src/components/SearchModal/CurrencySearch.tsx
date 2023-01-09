@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react'
-import { Currency, ETHER, Token } from '@kalosdefi/sdk'
+import { Currency, ETHER, Token } from '@kalosdefi/kalos-sdk'
 import { Text, Input, Box } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { FixedSizeList } from 'react-window'

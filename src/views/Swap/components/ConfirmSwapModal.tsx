@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { currencyEquals, Trade } from '@kalosdefi/sdk'
+import { currencyEquals, Trade } from '@kalosdefi/kalos-sdk'
 import { InjectedModalProps } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import TransactionConfirmationModal, {

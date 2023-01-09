@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { Token } from '@kalosdefi/sdk'
+import { Token } from '@kalosdefi/kalos-sdk'
 import { Button, Text, CheckmarkCircleIcon } from '@kalosdefi/uikit'
 import { AutoRow, RowFixed } from 'components/Layout/Row'
 import { AutoColumn } from 'components/Layout/Column'

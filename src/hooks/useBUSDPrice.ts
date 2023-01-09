@@ -1,4 +1,4 @@
-import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@kalosdefi/sdk'
+import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@kalosdefi/kalos-sdk'
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { BUSD, XALO } from '../config/constants/tokens'

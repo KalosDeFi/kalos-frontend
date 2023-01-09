@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@kalosdefi/sdk'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@kalosdefi/kalos-sdk'
 import React from 'react'
 import { Button, Text } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'

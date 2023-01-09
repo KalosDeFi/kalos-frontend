@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency } from '@kalosdefi/sdk'
+import { TokenAmount, Pair, Currency } from '@kalosdefi/kalos-sdk'
 import { useMemo } from 'react'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'

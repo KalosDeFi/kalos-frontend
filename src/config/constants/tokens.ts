@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@kalosdefi/sdk'
+import { ChainId, Token } from '@kalosdefi/kalos-sdk'
 
 export const CAKE: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(

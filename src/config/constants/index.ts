@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@kalosdefi/sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@kalosdefi/kalos-sdk'
 import { BUSD, DAI, USDT, BTCB, XALO, WBNB, UST, ETH, USDC } from './tokens'
 
 export const ROUTER_ADDRESS = '0x1cE0BAB195aedbC2ad32FCFE1301d7a6E92FB3dB'

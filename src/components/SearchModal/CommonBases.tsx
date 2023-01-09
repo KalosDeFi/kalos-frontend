@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@kalosdefi/sdk'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from '@kalosdefi/kalos-sdk'
 import { Text } from '@kalosdefi/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
