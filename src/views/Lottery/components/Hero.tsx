@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { Box, Flex, Heading, Skeleton } from '@kalosdefi/uikit'
 import { LotteryStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useLottery } from 'state/lottery/hooks'
 import { getBalanceNumber } from 'utils/formatBalance'
 import Balance from 'components/Balance'
@@ -219,7 +219,7 @@ const Hero = () => {
     isTransitioning,
   } = useLottery()
 
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const prizeInBusd = amountCollectedInCake.times(xaloPriceBusd)
   const prizeTotal = getBalanceNumber(prizeInBusd)
   const ticketBuyIsDisabled = status !== LotteryStatus.OPEN || isTransitioning

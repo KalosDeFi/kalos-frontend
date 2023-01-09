@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import { Flex, Skeleton, Heading, Box, Text } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { LotteryRound } from 'state/types'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useGetLotteryGraphDataById } from 'state/lottery/hooks'
 import { formatNumber, getBalanceNumber } from 'utils/formatBalance'
 import Balance from 'components/Balance'
@@ -26,7 +26,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryData: LotteryRound; lotteryId: 
 }) => {
   const { t } = useTranslation()
   const lotteryGraphData = useGetLotteryGraphDataById(lotteryId)
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
 
   let prizeInBusd = new BigNumber(NaN)
   if (lotteryData) {

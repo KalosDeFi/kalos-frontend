@@ -10,7 +10,7 @@ import useToast from 'hooks/useToast'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Balance from 'components/Balance'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 
 interface BountyModalProps {
@@ -37,7 +37,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
     totalPendingCakeHarvest,
     fees: { callFee },
   } = useCakeVault()
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const callFeeAsDecimal = callFee / 100
   const totalYieldToDisplay = getBalanceNumber(totalPendingCakeHarvest, 18)
 

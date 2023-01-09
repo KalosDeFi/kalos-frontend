@@ -20,7 +20,7 @@ import { getFullDisplayBalance } from 'utils/formatBalance'
 import { getXaloAddress } from 'utils/addressHelpers'
 import { BIG_ZERO, ethersToBigNumber } from 'utils/bigNumber'
 import { useAppDispatch } from 'state'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useLottery } from 'state/lottery/hooks'
 import { fetchUserTicketsAndLotteries } from 'state/lottery'
 import useTheme from 'hooks/useTheme'
@@ -84,7 +84,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const stringifiedUserKalo = userKalo.toJSON()
   const memoisedUserKalo = useMemo(() => new BigNumber(stringifiedUserKalo), [stringifiedUserKalo])
 
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const dispatch = useAppDispatch()
   const hasFetchedBalance = fetchStatus === FetchStatus.SUCCESS
   const userCakeDisplayBalance = getFullDisplayBalance(userKalo, 18, 3)

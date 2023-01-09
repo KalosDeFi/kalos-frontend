@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 import { BIG_TEN } from 'utils/bigNumber'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { useCakeVaultContract } from 'hooks/useContract'
 import useTheme from 'hooks/useTheme'
@@ -50,7 +50,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
   const [stakeAmount, setStakeAmount] = useState('')
   const [percent, setPercent] = useState(0)
   const { hasUnstakingFee } = useWithdrawalFeeTimer(parseInt(lastDepositedTime, 10), userShares)
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const usdValueStaked =
     xaloPriceBusd.gt(0) && stakeAmount ? formatNumber(new BigNumber(stakeAmount).times(xaloPriceBusd).toNumber()) : ''
 

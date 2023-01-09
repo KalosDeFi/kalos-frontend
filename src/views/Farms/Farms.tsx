@@ -7,7 +7,7 @@ import { ChainId } from '@kalosdefi/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
 import Page from 'components/Layout/Page'
-import { useFarms, usePollFarmsData, usePriceKaloBusd } from 'state/farms/hooks'
+import { useFarms, usePollFarmsData, usePriceXaloBusd } from 'state/farms/hooks'
 import usePersistState from 'hooks/usePersistState'
 import { Farm } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
@@ -116,7 +116,7 @@ const Farms: React.FC = () => {
   const { pathname } = useLocation()
   const { t } = useTranslation()
   const { data: farmsLP, userDataLoaded } = useFarms()
-  const xaloPrice = usePriceKaloBusd()
+  const xaloPrice = usePriceXaloBusd()
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = usePersistState(ViewMode.CARD, { localStorageKey: 'pancake_farm_view' })
   const { account } = useWeb3React()

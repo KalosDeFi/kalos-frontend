@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { getXaloAddress } from 'utils/addressHelpers'
 import { getBalanceNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { Flex, Text, Heading, Skeleton } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
@@ -48,7 +48,7 @@ const CakeDataRow = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getXaloAddress()))
   const xaloSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const mcap = xaloPriceBusd.times(xaloSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 

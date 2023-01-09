@@ -18,7 +18,7 @@ import {
 import { getBscScanLink } from 'utils'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { Bidder } from 'config/constants/types'
 import WhitelistedBiddersModal from '../WhitelistedBiddersModal'
 
@@ -111,7 +111,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, xaloPriceBusd, 
 
 const AuctionLeaderboardTable: React.FC<{ bidders: Bidder[]; noBidsText: string }> = ({ bidders, noBidsText }) => {
   const [visibleBidders, setVisibleBidders] = useState(10)
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const { t } = useTranslation()
 
   const { isXs, isSm } = useMatchBreakpoints()

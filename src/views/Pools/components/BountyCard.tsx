@@ -16,7 +16,7 @@ import {
 } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import Balance from 'components/Balance'
 import BountyModal from './BountyModal'
@@ -35,7 +35,7 @@ const BountyCard = () => {
     estimatedCakeBountyReward,
     fees: { callFee },
   } = useCakeVault()
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
 
   const estimatedDollarBountyReward = useMemo(() => {
     return new BigNumber(estimatedCakeBountyReward).multipliedBy(xaloPriceBusd)

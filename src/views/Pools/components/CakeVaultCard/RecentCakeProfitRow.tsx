@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, Text } from '@kalosdefi/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { getCakeVaultEarnings } from 'views/Pools/helpers'
 import RecentCakeProfitBalance from './RecentCakeProfitBalance'
@@ -14,7 +14,7 @@ const RecentCakeProfitCountdownRow = () => {
     pricePerFullShare,
     userData: { cakeAtLastUserAction, userShares, lastUserActionTime },
   } = useCakeVault()
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
     account,
     cakeAtLastUserAction,

@@ -1,5 +1,5 @@
 import { ReactText } from 'react'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { getBalanceNumber } from 'utils/formatBalance'
 import easterPrizes from 'config/constants/trading-competition/easter'
 import BigNumber from 'bignumber.js'
@@ -11,7 +11,7 @@ export const localiseTradingVolume = (value: number, decimals = 0) => {
 export const useCompetitionCakeRewards = (userCakeReward: ReactText) => {
   const cakeAsBigNumber = new BigNumber(userCakeReward as string)
   const cakeBalance = getBalanceNumber(cakeAsBigNumber)
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   return {
     cakeReward: cakeBalance,
     dollarValueOfCakeReward: xaloPriceBusd.gt(0) ? cakeBalance * xaloPriceBusd.toNumber() : null,

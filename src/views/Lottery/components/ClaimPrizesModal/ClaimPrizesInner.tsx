@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { LotteryTicket, LotteryTicketClaimData } from 'config/constants/types'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { callWithEstimateGas } from 'utils/calls'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useLottery } from 'state/lottery/hooks'
 import { fetchUserLotteries } from 'state/lottery'
 import { useAppDispatch } from 'state'
@@ -34,7 +34,7 @@ const ClaimInnerContainer: React.FC<ClaimInnerProps> = ({ onSuccess, roundsToCla
   const lotteryContract = useLotteryV2Contract()
   const activeClaimData = roundsToClaim[activeClaimIndex]
 
-  const xaloPriceBusd = usePriceKaloBusd()
+  const xaloPriceBusd = usePriceXaloBusd()
   const cakeReward = activeClaimData.cakeTotal
   const dollarReward = cakeReward.times(xaloPriceBusd)
   const rewardAsBalance = getBalanceAmount(cakeReward).toNumber()

@@ -4,7 +4,7 @@ import { useTranslation } from 'contexts/Localization'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router'
 import { DEFAULT_META, getCustomMeta } from 'config/constants/meta'
-import { usePriceKaloBusd } from 'state/farms/hooks'
+import { usePriceXaloBusd } from 'state/farms/hooks'
 import Container from './Container'
 
 const StyledPage = styled(Container)`
@@ -26,7 +26,7 @@ const StyledPage = styled(Container)`
 const PageMeta = () => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const xaloPriceUsd = usePriceKaloBusd()
+  const xaloPriceUsd = usePriceXaloBusd()
   const xaloPriceUsdDisplay = xaloPriceUsd.gt(0)
     ? `$${xaloPriceUsd.toNumber().toLocaleString(undefined, {
         minimumFractionDigits: 3,
