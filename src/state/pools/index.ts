@@ -35,7 +35,7 @@ const initialState: PoolsState = {
     userData: {
       isLoading: true,
       userShares: null,
-      cakeAtLastUserAction: null,
+      xaloAtLastUserAction: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
     },

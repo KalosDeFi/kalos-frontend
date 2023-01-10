@@ -43,13 +43,13 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
 
   // Auto CAKE vault calculations
   const {
-    userData: { cakeAtLastUserAction, userShares },
+    userData: { xaloAtLastUserAction, userShares },
     pricePerFullShare,
     fees: { performanceFee },
   } = useCakeVault()
   const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    xaloAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,
