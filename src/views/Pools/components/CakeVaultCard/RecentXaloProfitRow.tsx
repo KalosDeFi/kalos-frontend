@@ -5,19 +5,19 @@ import { useTranslation } from 'contexts/Localization'
 import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { getCakeVaultEarnings } from 'views/Pools/helpers'
-import RecentCakeProfitBalance from './RecentCakeProfitBalance'
+import RecentXaloProfitBalance from './RecentXaloProfitBalance'
 
-const RecentCakeProfitCountdownRow = () => {
+const RecentXaloProfitCountdownRow = () => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const {
     pricePerFullShare,
-    userData: { cakeAtLastUserAction, userShares, lastUserActionTime },
+    userData: { xaloAtLastUserAction, userShares, lastUserActionTime },
   } = useCakeVault()
   const xaloPriceBusd = usePriceXaloBusd()
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  const { hasAutoEarnings, autoXaloToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    xaloAtLastUserAction,
     userShares,
     pricePerFullShare,
     xaloPriceBusd.toNumber(),
@@ -31,7 +31,7 @@ const RecentCakeProfitCountdownRow = () => {
     <Flex alignItems="center" justifyContent="space-between">
       <Text fontSize="14px">{`${t('Recent XALO profit')}:`}</Text>
       {hasAutoEarnings && (
-        <RecentCakeProfitBalance
+        <RecentXaloProfitBalance
           cakeToDisplay={autoCakeToDisplay}
           dollarValueToDisplay={autoUsdToDisplay}
           dateStringToDisplay={dateStringToDisplay}
@@ -41,4 +41,4 @@ const RecentCakeProfitCountdownRow = () => {
   )
 }
 
-export default RecentCakeProfitCountdownRow
+export default RecentXaloProfitCountdownRow
