@@ -34,12 +34,12 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
   const [pendingTx, setPendingTx] = useState(false)
   const {
     estimatedXaloBountyReward,
-    totalPendingCakeHarvest,
+    totalPendingXaloHarvest,
     fees: { callFee },
   } = useKalosVault()
   const xaloPriceBusd = usePriceXaloBusd()
   const callFeeAsDecimal = callFee / 100
-  const totalYieldToDisplay = getBalanceNumber(totalPendingCakeHarvest, 18)
+  const totalYieldToDisplay = getBalanceNumber(totalPendingXaloHarvest, 18)
 
   const estimatedDollarBountyReward = useMemo(() => {
     return new BigNumber(estimatedXaloBountyReward).multipliedBy(xaloPriceBusd)
