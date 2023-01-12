@@ -13,7 +13,7 @@ import CardFooter from '../PoolCard/CardFooter'
 import StyledCardHeader from '../PoolCard/StyledCardHeader'
 import VaultCardActions from './VaultCardActions'
 import UnstakingFeeCountdownRow from './UnstakingFeeCountdownRow'
-import RecentCakeProfitRow from './RecentXaloProfitRow'
+import RecentXaloProfitRow from './RecentXaloProfitRow'
 
 const StyledCardBody = styled(CardBody)<{ isLoading: boolean }>`
   min-height: ${({ isLoading }) => (isLoading ? '0' : '254px')};
@@ -47,13 +47,13 @@ const KalosVaultCard: React.FC<KalosVaultProps> = ({ pool, showStakedOnly }) => 
         <StyledCardHeader
           isStaking={accountHasSharesStaked}
           isAutoVault
-          earningToken={tokens.cake}
-          stakingToken={tokens.cake}
+          earningToken={tokens.xalo}
+          stakingToken={tokens.xalo}
         />
         <StyledCardBody isLoading={isLoading}>
           <AprRow pool={pool} performanceFee={performanceFeeAsDecimal} />
           <Box mt="24px">
-            <RecentCakeProfitRow />
+            <RecentXaloProfitRow />
           </Box>
           <Box mt="8px">
             <UnstakingFeeCountdownRow />

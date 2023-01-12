@@ -135,20 +135,20 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
   const tokenAddress = earningToken.address ? getAddress(earningToken.address) : ''
 
   const {
-    totalCakeInVault,
+    totalXaloInVault,
     fees: { performanceFee },
   } = useKalosVault()
 
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
-  const isManualCakePool = sousId === 0
+  const isManualXaloPool = sousId === 0
 
   const getTotalStakedBalance = () => {
     if (isAutoVault) {
-      return getBalanceNumber(totalCakeInVault, stakingToken.decimals)
+      return getBalanceNumber(totalXaloInVault, stakingToken.decimals)
     }
-    if (isManualCakePool) {
-      const manualCakeTotalMinusAutoVault = new BigNumber(totalStaked).minus(totalCakeInVault)
-      return getBalanceNumber(manualCakeTotalMinusAutoVault, stakingToken.decimals)
+    if (isManualXaloPool) {
+      const manualXaloTotalMinusAutoVault = new BigNumber(totalStaked).minus(totalXaloInVault)
+      return getBalanceNumber(manualXaloTotalMinusAutoVault, stakingToken.decimals)
     }
     return getBalanceNumber(totalStaked, stakingToken.decimals)
   }
