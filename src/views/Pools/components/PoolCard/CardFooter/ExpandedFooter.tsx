@@ -42,7 +42,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
   const { t } = useTranslation()
   const { currentBlock } = useBlock()
   const {
-    totalCakeInVault,
+    totalXaloInVault,
     fees: { performanceFee },
   } = useKalosVault()
 
@@ -74,10 +74,10 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
 
   const getTotalStakedBalance = () => {
     if (isAutoVault) {
-      return getBalanceNumber(totalCakeInVault, stakingToken.decimals)
+      return getBalanceNumber(totalXaloInVault, stakingToken.decimals)
     }
     if (isManualCakePool) {
-      const manualCakeTotalMinusAutoVault = new BigNumber(totalStaked).minus(totalCakeInVault)
+      const manualCakeTotalMinusAutoVault = new BigNumber(totalStaked).minus(totalXaloInVault)
       return getBalanceNumber(manualCakeTotalMinusAutoVault, stakingToken.decimals)
     }
     return getBalanceNumber(totalStaked, stakingToken.decimals)

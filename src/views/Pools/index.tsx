@@ -92,7 +92,7 @@ const Pools: React.FC = () => {
     userData: { xaloAtLastUserAction, userShares },
     fees: { performanceFee },
     pricePerFullShare,
-    totalCakeInVault,
+    totalXaloInVault,
   } = useKalosVault()
   const accountHasVaultShares = userShares && userShares.gt(0)
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
@@ -195,7 +195,7 @@ const Pools: React.FC = () => {
       case 'totalStaked':
         return orderBy(
           poolsToSort,
-          (pool: Pool) => (pool.isAutoVault ? totalCakeInVault.toNumber() : pool.totalStaked.toNumber()),
+          (pool: Pool) => (pool.isAutoVault ? totalXaloInVault.toNumber() : pool.totalStaked.toNumber()),
           'desc',
         )
       default:

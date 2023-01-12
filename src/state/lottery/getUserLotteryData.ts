@@ -53,7 +53,7 @@ const getGraphLotteryUser = async (account: string): Promise<LotteryUserGraphEnt
   let user
   const blankUser = {
     account,
-    totalCake: '',
+    totalXalo: '',
     totalTickets: '',
     rounds: [],
   }
@@ -66,7 +66,7 @@ const getGraphLotteryUser = async (account: string): Promise<LotteryUserGraphEnt
           user(id: $account) {
             id
             totalTickets
-            totalCake
+            totalXalo
             rounds(first: 100, orderDirection: desc, orderBy: block) {
               id
               lottery {
@@ -90,7 +90,7 @@ const getGraphLotteryUser = async (account: string): Promise<LotteryUserGraphEnt
     } else {
       user = {
         account: userRes.id,
-        totalCake: userRes.totalCake,
+        totalXalo: userRes.totalXalo,
         totalTickets: userRes.totalTickets,
         rounds: userRes.rounds.map((round) => {
           return {
