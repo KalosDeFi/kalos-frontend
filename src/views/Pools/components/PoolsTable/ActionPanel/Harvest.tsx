@@ -2,18 +2,18 @@ import React from 'react'
 import { Button, Text, useModal, Flex, TooltipText, useTooltip, Skeleton, Heading } from '@kalosdefi/uikit'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { getCakeVaultEarnings } from 'views/Pools/helpers'
+import { getKalosVaultEarnings } from 'views/Pools/helpers'
 import { PoolCategory } from 'config/constants/types'
 import { formatNumber, getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
-import { useCakeVault } from 'state/pools/hooks'
+import { useKalosVault } from 'state/pools/hooks'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { Pool } from 'state/types'
 
 import { ActionContainer, ActionTitles, ActionContent } from './styles'
 import CollectModal from '../../PoolCard/Modals/CollectModal'
-import UnstakingFeeCountdownRow from '../../CakeVaultCard/UnstakingFeeCountdownRow'
+import UnstakingFeeCountdownRow from '../../KalosVaultCard/UnstakingFeeCountdownRow'
 
 interface HarvestActionProps extends Pool {
   userDataLoaded: boolean
@@ -46,8 +46,8 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
     userData: { xaloAtLastUserAction, userShares },
     pricePerFullShare,
     fees: { performanceFee },
-  } = useCakeVault()
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  } = useKalosVault()
+  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getKalosVaultEarnings(
     account,
     xaloAtLastUserAction,
     userShares,

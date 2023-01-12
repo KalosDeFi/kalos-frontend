@@ -8,7 +8,7 @@ import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
 import usePersistState from 'hooks/usePersistState'
-import { useFetchPublicPoolsData, usePools, useFetchCakeVault, useCakeVault } from 'state/pools/hooks'
+import { useFetchPublicPoolsData, usePools, useFetchKalosVault, useKalosVault } from 'state/pools/hooks'
 import { usePollFarmsData } from 'state/farms/hooks'
 import { latinise } from 'utils/latinise'
 import FlexLayout from 'components/Layout/Flex'
@@ -19,13 +19,13 @@ import Select, { OptionProps } from 'components/Select/Select'
 import { Pool } from 'state/types'
 import Loading from 'components/Loading'
 import PoolCard from './components/PoolCard'
-import CakeVaultCard from './components/CakeVaultCard'
+import KalosVaultCard from './components/KalosVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 // import BountyCard from './components/BountyCard'
 // import HelpButton from './components/HelpButton'
 import PoolsTable from './components/PoolsTable/PoolsTable'
 import { ViewMode } from './components/ToggleView/ToggleView'
-import { getAprData, getCakeVaultEarnings } from './helpers'
+import { getAprData, getKalosVaultEarnings } from './helpers'
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;
@@ -93,7 +93,7 @@ const Pools: React.FC = () => {
     fees: { performanceFee },
     pricePerFullShare,
     totalCakeInVault,
-  } = useCakeVault()
+  } = useKalosVault()
   const accountHasVaultShares = userShares && userShares.gt(0)
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
 
@@ -128,7 +128,7 @@ const Pools: React.FC = () => {
   const hasStakeInFinishedPools = stakedOnlyFinishedPools.length > 0
 
   usePollFarmsData()
-  useFetchCakeVault()
+  useFetchKalosVault()
   useFetchPublicPoolsData()
 
   useEffect(() => {
@@ -181,7 +181,7 @@ const Pools: React.FC = () => {
               return 0
             }
             return pool.isAutoVault
-              ? getCakeVaultEarnings(
+              ? getKalosVaultEarnings(
                   account,
                   xaloAtLastUserAction,
                   userShares,
@@ -224,7 +224,7 @@ const Pools: React.FC = () => {
     <CardLayout>
       {chosenPools.map((pool) =>
         pool.isAutoVault ? (
-          <CakeVaultCard key="auto-cake" pool={pool} showStakedOnly={stakedOnly} />
+          <KalosVaultCard key="auto-cake" pool={pool} showStakedOnly={stakedOnly} />
         ) : (
           <PoolCard key={pool.sousId} pool={pool} account={account} />
         ),

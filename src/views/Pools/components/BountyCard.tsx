@@ -17,7 +17,7 @@ import {
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { usePriceXaloBusd } from 'state/farms/hooks'
-import { useCakeVault } from 'state/pools/hooks'
+import { useKalosVault } from 'state/pools/hooks'
 import Balance from 'components/Balance'
 import BountyModal from './BountyModal'
 
@@ -34,7 +34,7 @@ const BountyCard = () => {
   const {
     estimatedCakeBountyReward,
     fees: { callFee },
-  } = useCakeVault()
+  } = useKalosVault()
   const xaloPriceBusd = usePriceXaloBusd()
 
   const estimatedDollarBountyReward = useMemo(() => {

@@ -4,14 +4,14 @@ import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'
 import { Modal, Text, Flex, Button, HelpIcon, AutoRenewIcon, useTooltip } from '@kalosdefi/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { useCakeVaultContract } from 'hooks/useContract'
+import { useKalosVaultContract } from 'hooks/useContract'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Balance from 'components/Balance'
 import { usePriceXaloBusd } from 'state/farms/hooks'
-import { useCakeVault } from 'state/pools/hooks'
+import { useKalosVault } from 'state/pools/hooks'
 
 interface BountyModalProps {
   onDismiss?: () => void
@@ -30,13 +30,13 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
   const { account } = useWeb3React()
   const { theme } = useTheme()
   const { toastError, toastSuccess } = useToast()
-  const cakeVaultContract = useCakeVaultContract()
+  const kalosVaultContract = useKalosVaultContract()
   const [pendingTx, setPendingTx] = useState(false)
   const {
     estimatedCakeBountyReward,
     totalPendingCakeHarvest,
     fees: { callFee },
-  } = useCakeVault()
+  } = useKalosVault()
   const xaloPriceBusd = usePriceXaloBusd()
   const callFeeAsDecimal = callFee / 100
   const totalYieldToDisplay = getBalanceNumber(totalPendingCakeHarvest, 18)
@@ -58,7 +58,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
   const handleConfirmClick = async () => {
     setPendingTx(true)
     try {
-      const tx = await cakeVaultContract.harvest({ gasLimit: 300000 })
+      const tx = await kalosVaultContract.harvest({ gasLimit: 300000 })
       const receipt = await tx.wait()
       if (receipt.status) {
         toastSuccess(t('Bounty collected!'), t('XALO bounty has been sent to your wallet.'))

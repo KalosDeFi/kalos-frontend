@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useXalo, useSousChef, useCakeVaultContract } from 'hooks/useContract'
+import { useXalo, useSousChef, useKalosVaultContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import useLastUpdated from 'hooks/useLastUpdated'
 
@@ -49,11 +49,11 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { t } = useTranslation()
   const { toastSuccess, toastError } = useToast()
-  const cakeVaultContract = useCakeVaultContract()
+  const kalosVaultContract = useKalosVaultContract()
   const xaloContract = useXalo()
 
   const handleApprove = async () => {
-    const tx = await xaloContract.approve(cakeVaultContract.address, ethers.constants.MaxUint256)
+    const tx = await xaloContract.approve(kalosVaultContract.address, ethers.constants.MaxUint256)
     setRequestedApproval(true)
     const receipt = await tx.wait()
     if (receipt.status) {
@@ -73,12 +73,12 @@ export const useCheckVaultApprovalStatus = () => {
   const [isVaultApproved, setIsVaultApproved] = useState(false)
   const { account } = useWeb3React()
   const xaloContract = useXalo()
-  const cakeVaultContract = useCakeVaultContract()
+  const kalosVaultContract = useKalosVaultContract()
   const { lastUpdated, setLastUpdated } = useLastUpdated()
   useEffect(() => {
     const checkApprovalStatus = async () => {
       try {
-        const response = await xaloContract.allowance(account, cakeVaultContract.address)
+        const response = await xaloContract.allowance(account, kalosVaultContract.address)
         const currentAllowance = new BigNumber(response.toString())
         setIsVaultApproved(currentAllowance.gt(0))
       } catch (error) {
@@ -87,7 +87,7 @@ export const useCheckVaultApprovalStatus = () => {
     }
 
     checkApprovalStatus()
-  }, [account, xaloContract, cakeVaultContract, lastUpdated])
+  }, [account, xaloContract, kalosVaultContract, lastUpdated])
 
   return { isVaultApproved, setLastUpdated }
 }

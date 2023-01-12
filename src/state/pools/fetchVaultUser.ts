@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js'
-import { getCakeVaultContract } from 'utils/contractHelpers'
+import { getKalosVaultContract } from 'utils/contractHelpers'
 
-const cakeVaultContract = getCakeVaultContract()
+const kalosVaultContract = getKalosVaultContract()
 
 const fetchVaultUser = async (account: string) => {
   try {
-    const userContractResponse = await cakeVaultContract.userInfo(account)
+    const userContractResponse = await kalosVaultContract.userInfo(account)
     return {
       isLoading: false,
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, Flex, useTooltip, TooltipText } from '@kalosdefi/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { useCakeVault } from 'state/pools/hooks'
+import { useKalosVault } from 'state/pools/hooks'
 import UnstakingFeeCountdownRow from './UnstakingFeeCountdownRow'
 
 interface FeeSummaryProps {
@@ -13,7 +13,7 @@ const FeeSummary: React.FC<FeeSummaryProps> = ({ stakingTokenSymbol, stakeAmount
   const { t } = useTranslation()
   const {
     fees: { withdrawalFee },
-  } = useCakeVault()
+  } = useKalosVault()
   const feeAsDecimal = withdrawalFee / 100
   const feeInCake = (parseFloat(stakeAmount) * (feeAsDecimal / 100)).toFixed(4)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(

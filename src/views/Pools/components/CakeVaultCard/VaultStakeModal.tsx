@@ -6,14 +6,14 @@ import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 import { BIG_TEN } from 'utils/bigNumber'
 import { usePriceXaloBusd } from 'state/farms/hooks'
-import { useCakeVault } from 'state/pools/hooks'
-import { useCakeVaultContract } from 'hooks/useContract'
+import { useKalosVault } from 'state/pools/hooks'
+import { useKalosVaultContract } from 'hooks/useContract'
 import useTheme from 'hooks/useTheme'
 import useWithdrawalFeeTimer from 'views/Pools/hooks/useWithdrawalFeeTimer'
 import BigNumber from 'bignumber.js'
 import { getFullDisplayBalance, formatNumber, getDecimalAmount } from 'utils/formatBalance'
 import useToast from 'hooks/useToast'
-import { fetchCakeVaultUserData } from 'state/pools'
+import { fetchKalosVaultUserData } from 'state/pools'
 import { Pool } from 'state/types'
 import { getAddress } from 'utils/addressHelpers'
 import { convertCakeToShares } from '../../helpers'
@@ -38,11 +38,11 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
   const dispatch = useAppDispatch()
   const { stakingToken } = pool
   const { account } = useWeb3React()
-  const cakeVaultContract = useCakeVaultContract()
+  const kalosVaultContract = useKalosVaultContract()
   const {
     userData: { lastDepositedTime, userShares },
     pricePerFullShare,
-  } = useCakeVault()
+  } = useKalosVault()
   const { t } = useTranslation()
   const { theme } = useTheme()
   const { toastSuccess, toastError } = useToast()
@@ -86,13 +86,13 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
 
     if (isWithdrawingAll) {
       try {
-        const tx = await cakeVaultContract.withdrawAll(callOptions)
+        const tx = await kalosVaultContract.withdrawAll(callOptions)
         const receipt = await tx.wait()
         if (receipt.status) {
           toastSuccess(t('Unstaked!'), t('Your earnings have also been harvested to your wallet'))
           setPendingTx(false)
           onDismiss()
-          dispatch(fetchCakeVaultUserData({ account }))
+          dispatch(fetchKalosVaultUserData({ account }))
         }
       } catch (error) {
         toastError(t('Error'), t('Please try again. Confirm the transaction and make sure you are paying enough gas!'))
@@ -102,13 +102,13 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
       // .toString() being called to fix a BigNumber error in prod
       // as suggested here https://github.com/ChainSafe/web3.js/issues/2077
       try {
-        const tx = await cakeVaultContract.withdraw(shareStakeToWithdraw.sharesAsBigNumber.toString(), callOptions)
+        const tx = await kalosVaultContract.withdraw(shareStakeToWithdraw.sharesAsBigNumber.toString(), callOptions)
         const receipt = await tx.wait()
         if (receipt.status) {
           toastSuccess(t('Unstaked!'), t('Your earnings have also been harvested to your wallet'))
           setPendingTx(false)
           onDismiss()
-          dispatch(fetchCakeVaultUserData({ account }))
+          dispatch(fetchKalosVaultUserData({ account }))
         }
       } catch (error) {
         toastError(t('Error'), t('Please try again. Confirm the transaction and make sure you are paying enough gas!'))
@@ -122,13 +122,13 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
     try {
       // .toString() being called to fix a BigNumber error in prod
       // as suggested here https://github.com/ChainSafe/web3.js/issues/2077
-      const tx = await cakeVaultContract.deposit(convertedStakeAmount.toString(), callOptions)
+      const tx = await kalosVaultContract.deposit(convertedStakeAmount.toString(), callOptions)
       const receipt = await tx.wait()
       if (receipt.status) {
         toastSuccess(t('Staked!'), t('Your funds have been staked in the pool'))
         setPendingTx(false)
         onDismiss()
-        dispatch(fetchCakeVaultUserData({ account }))
+        dispatch(fetchKalosVaultUserData({ account }))
       }
     } catch (error) {
       toastError(t('Error'), t('Please try again. Confirm the transaction and make sure you are paying enough gas!'))

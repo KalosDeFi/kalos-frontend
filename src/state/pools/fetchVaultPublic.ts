@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js'
 import { convertSharesToCake } from 'views/Pools/helpers'
 import { multicallv2 } from 'utils/multicall'
-import cakeVaultAbi from 'config/abi/cakeVault.json'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
+import kalosVaultAbi from 'config/abi/kalosVault.json'
+import { getKalosVaultAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 
 export const fetchPublicVaultData = async () => {
@@ -13,12 +13,12 @@ export const fetchPublicVaultData = async () => {
       'calculateHarvestCakeRewards',
       'calculateTotalPendingCakeRewards',
     ].map((method) => ({
-      address: getCakeVaultAddress(),
+      address: getKalosVaultAddress(),
       name: method,
     }))
 
     const [[sharePrice], [shares], [estimatedCakeBountyReward], [totalPendingCakeHarvest]] = await multicallv2(
-      cakeVaultAbi,
+      kalosVaultAbi,
       calls,
     )
 
@@ -46,11 +46,11 @@ export const fetchPublicVaultData = async () => {
 export const fetchVaultFees = async () => {
   try {
     const calls = ['performanceFee', 'callFee', 'withdrawFee', 'withdrawFeePeriod'].map((method) => ({
-      address: getCakeVaultAddress(),
+      address: getKalosVaultAddress(),
       name: method,
     }))
 
-    const [[performanceFee], [callFee], [withdrawalFee], [withdrawalFeePeriod]] = await multicallv2(cakeVaultAbi, calls)
+    const [[performanceFee], [callFee], [withdrawalFee], [withdrawalFeePeriod]] = await multicallv2(kalosVaultAbi, calls)
 
     return {
       performanceFee: performanceFee.toNumber(),

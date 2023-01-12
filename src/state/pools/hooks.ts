@@ -8,9 +8,9 @@ import useRefresh from 'hooks/useRefresh'
 import {
   fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
-  fetchCakeVaultPublicData,
-  fetchCakeVaultUserData,
-  fetchCakeVaultFees,
+  fetchKalosVaultPublicData,
+  fetchKalosVaultUserData,
+  fetchKalosVaultFees,
   fetchPoolsStakingLimitsAsync,
 } from '.'
 import { State, Pool } from '../types'
@@ -47,25 +47,25 @@ export const usePools = (account): { pools: Pool[]; userDataLoaded: boolean } =>
   return { pools: pools.map(transformPool), userDataLoaded }
 }
 
-export const useFetchCakeVault = () => {
+export const useFetchKalosVault = () => {
   const { account } = useWeb3React()
   const { fastRefresh } = useRefresh()
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchCakeVaultPublicData())
+    dispatch(fetchKalosVaultPublicData())
   }, [dispatch, fastRefresh])
 
   useEffect(() => {
-    dispatch(fetchCakeVaultUserData({ account }))
+    dispatch(fetchKalosVaultUserData({ account }))
   }, [dispatch, fastRefresh, account])
 
   useEffect(() => {
-    dispatch(fetchCakeVaultFees())
+    dispatch(fetchKalosVaultFees())
   }, [dispatch])
 }
 
-export const useCakeVault = () => {
+export const useKalosVault = () => {
   const {
     totalShares: totalSharesAsString,
     pricePerFullShare: pricePerFullShareAsString,
@@ -80,7 +80,7 @@ export const useCakeVault = () => {
       lastDepositedTime,
       lastUserActionTime,
     },
-  } = useSelector((state: State) => state.pools.cakeVault)
+  } = useSelector((state: State) => state.pools.kalosVault)
 
   const estimatedCakeBountyReward = useMemo(() => {
     return new BigNumber(estimatedCakeBountyRewardAsString)

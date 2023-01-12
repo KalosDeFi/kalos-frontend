@@ -91,7 +91,7 @@ export interface VaultUser {
   lastDepositedTime: string
   lastUserActionTime: string
 }
-export interface CakeVault {
+export interface KalosVault {
   totalShares?: string
   pricePerFullShare?: string
   totalCakeInVault?: string
@@ -103,7 +103,7 @@ export interface CakeVault {
 
 export interface PoolsState {
   data: Pool[]
-  cakeVault: CakeVault
+  kalosVault: KalosVault
   userDataLoaded: boolean
 }
 

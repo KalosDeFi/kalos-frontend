@@ -7,7 +7,7 @@ import { VotingBox, ModalInner } from './styles'
 interface DetailsViewProps {
   total: BigNumber
   cakeBalance: BigNumber
-  cakeVaultBalance: BigNumber
+  kalosVaultBalance: BigNumber
   cakePoolBalance: BigNumber
   poolsBalance: BigNumber
   cakeBnbLpBalance: BigNumber
@@ -16,7 +16,7 @@ interface DetailsViewProps {
 const DetailsView: React.FC<DetailsViewProps> = ({
   total,
   cakeBalance,
-  cakeVaultBalance,
+  kalosVaultBalance,
   cakePoolBalance,
   poolsBalance,
   cakeBnbLpBalance,
@@ -58,7 +58,7 @@ const DetailsView: React.FC<DetailsViewProps> = ({
         <Text color="textSubtle" fontSize="16px">
           {t('Auto CAKE Pool')}
         </Text>
-        <Text textAlign="right">{cakeVaultBalance.toFormat(3)}</Text>
+        <Text textAlign="right">{kalosVaultBalance.toFormat(3)}</Text>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="4px">
         <Text color="textSubtle" fontSize="16px">

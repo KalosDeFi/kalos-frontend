@@ -26,7 +26,7 @@ const CastVoteModal: React.FC<CastVoteModalProps> = ({ onSuccess, proposalId, vo
     isLoading,
     total,
     cakeBalance,
-    cakeVaultBalance,
+    kalosVaultBalance,
     cakePoolBalance,
     poolsBalance,
     cakeBnbLpBalance,
@@ -104,7 +104,7 @@ const CastVoteModal: React.FC<CastVoteModalProps> = ({ onSuccess, proposalId, vo
           <DetailsView
             total={total}
             cakeBalance={cakeBalance}
-            cakeVaultBalance={cakeVaultBalance}
+            kalosVaultBalance={kalosVaultBalance}
             cakePoolBalance={cakePoolBalance}
             poolsBalance={poolsBalance}
             cakeBnbLpBalance={cakeBnbLpBalance}

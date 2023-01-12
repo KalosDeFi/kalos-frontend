@@ -17,11 +17,11 @@ import {
   getClaimRefundAddress,
   getTradingCompetitionAddress,
   getEasterNftAddress,
-  getCakeVaultAddress,
+  getKalosVaultAddress,
   getPredictionsAddress,
   getChainlinkOracleAddress,
   getMulticallAddress,
-  getBunnySpecialCakeVaultAddress,
+  getBunnySpecialKalosVaultAddress,
   getBunnySpecialPredictionAddress,
   getFarmAuctionAddress,
 } from 'utils/addressHelpers'
@@ -46,11 +46,11 @@ import sousChefBnb from 'config/abi/sousChefBnb.json'
 import claimRefundAbi from 'config/abi/claimRefund.json'
 import tradingCompetitionAbi from 'config/abi/tradingCompetition.json'
 import easterNftAbi from 'config/abi/easterNft.json'
-import cakeVaultAbi from 'config/abi/cakeVault.json'
+import kalosVaultAbi from 'config/abi/kalosVault.json'
 import predictionsAbi from 'config/abi/predictions.json'
 import chainlinkOracleAbi from 'config/abi/chainlinkOracle.json'
 import MultiCallAbi from 'config/abi/Multicall.json'
-import bunnySpecialCakeVaultAbi from 'config/abi/bunnySpecialCakeVault.json'
+import bunnySpecialKalosVaultAbi from 'config/abi/bunnySpecialKalosVault.json'
 import bunnySpecialPredictionAbi from 'config/abi/bunnySpecialPrediction.json'
 import farmAuctionAbi from 'config/abi/farmAuction.json'
 import { ChainLinkOracleContract, FarmAuctionContract, PredictionsContract } from './types'
@@ -117,8 +117,8 @@ export const getTradingCompetitionContract = (signer?: ethers.Signer | ethers.pr
 export const getEasterNftContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(easterNftAbi, getEasterNftAddress(), signer)
 }
-export const getCakeVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(cakeVaultAbi, getCakeVaultAddress(), signer)
+export const getKalosVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(kalosVaultAbi, getKalosVaultAddress(), signer)
 }
 
 export const getPredictionsContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
@@ -131,8 +131,8 @@ export const getChainlinkOracleContract = (signer?: ethers.Signer | ethers.provi
 export const getMulticallContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(MultiCallAbi, getMulticallAddress(), signer)
 }
-export const getBunnySpecialCakeVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(bunnySpecialCakeVaultAbi, getBunnySpecialCakeVaultAddress(), signer)
+export const getBunnySpecialKalosVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(bunnySpecialKalosVaultAbi, getBunnySpecialKalosVaultAddress(), signer)
 }
 export const getBunnySpecialPredictionContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(bunnySpecialPredictionAbi, getBunnySpecialPredictionAddress(), signer)

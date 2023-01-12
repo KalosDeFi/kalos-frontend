@@ -16,7 +16,7 @@ import {
   getTradingCompetitionContract,
   getEasterNftContract,
   getErc721Contract,
-  getCakeVaultContract,
+  getKalosVaultContract,
   getPredictionsContract,
   getChainlinkOracleContract,
   getSouschefV2Contract,
@@ -130,9 +130,9 @@ export const useEasterNftContract = () => {
   return useMemo(() => getEasterNftContract(library.getSigner()), [library])
 }
 
-export const useCakeVaultContract = () => {
+export const useKalosVaultContract = () => {
   const { library } = useActiveWeb3React()
-  return useMemo(() => getCakeVaultContract(library.getSigner()), [library])
+  return useMemo(() => getKalosVaultContract(library.getSigner()), [library])
 }
 
 export const usePredictionsContract = () => {

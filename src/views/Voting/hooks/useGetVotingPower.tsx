@@ -10,7 +10,7 @@ import { getVotingPower } from '../helpers'
 interface State {
   verificationHash: string
   cakeBalance: BigNumber
-  cakeVaultBalance: BigNumber
+  kalosVaultBalance: BigNumber
   cakePoolBalance: BigNumber
   poolsBalance: BigNumber
   cakeBnbLpBalance: BigNumber
@@ -20,7 +20,7 @@ interface State {
 const initialState: State = {
   verificationHash: null,
   cakeBalance: BIG_ZERO,
-  cakeVaultBalance: BIG_ZERO,
+  kalosVaultBalance: BIG_ZERO,
   cakePoolBalance: BIG_ZERO,
   poolsBalance: BIG_ZERO,
   cakeBnbLpBalance: BIG_ZERO,
@@ -46,7 +46,7 @@ const useGetVotingPower = (block?: number, isActive = true): State & { isLoading
           cakePoolBalance,
           total,
           poolsBalance,
-          cakeVaultBalance,
+          kalosVaultBalance,
           verificationHash,
         } = await getVotingPower(account, poolAddresses, blockNumber)
 
@@ -58,7 +58,7 @@ const useGetVotingPower = (block?: number, isActive = true): State & { isLoading
             cakeBnbLpBalance: new BigNumber(cakeBnbLpBalance),
             cakePoolBalance: new BigNumber(cakePoolBalance),
             poolsBalance: new BigNumber(poolsBalance),
-            cakeVaultBalance: new BigNumber(cakeVaultBalance),
+            kalosVaultBalance: new BigNumber(kalosVaultBalance),
             total: new BigNumber(total),
           }))
         }

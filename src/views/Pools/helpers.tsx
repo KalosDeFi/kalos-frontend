@@ -62,7 +62,7 @@ export const getAprData = (pool: Pool, performanceFee: number) => {
   return { apr, isHighValueToken, roundingDecimals, compoundFrequency }
 }
 
-export const getCakeVaultEarnings = (
+export const getKalosVaultEarnings = (
   account: string,
   xaloAtLastUserAction: BigNumber,
   userShares: BigNumber,

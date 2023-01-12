@@ -50,8 +50,8 @@ export const getTradingCompetitionAddress = () => {
 export const getEasterNftAddress = () => {
   return getAddress(addresses.easterNft)
 }
-export const getCakeVaultAddress = () => {
-  return getAddress(addresses.cakeVault)
+export const getKalosVaultAddress = () => {
+  return getAddress(addresses.kalosVault)
 }
 export const getPredictionsAddress = () => {
   return getAddress(addresses.predictions)
@@ -59,8 +59,8 @@ export const getPredictionsAddress = () => {
 export const getChainlinkOracleAddress = () => {
   return getAddress(addresses.chainlinkOracle)
 }
-export const getBunnySpecialCakeVaultAddress = () => {
-  return getAddress(addresses.bunnySpecialCakeVault)
+export const getBunnySpecialKalosVaultAddress = () => {
+  return getAddress(addresses.bunnySpecialKalosVault)
 }
 export const getBunnySpecialPredictionAddress = () => {
   return getAddress(addresses.bunnySpecialPrediction)
