@@ -18,7 +18,7 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     status,
     startTime,
     endTime,
-    priceTicketInCake,
+    priceTicketInXalo,
     discountDivisor,
     treasuryFee,
     firstTicketId,
@@ -43,7 +43,7 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     status: LotteryStatus[statusKey],
     startTime: startTime?.toString(),
     endTime: endTime?.toString(),
-    priceTicketInCake: ethersToSerializedBigNumber(priceTicketInCake),
+    priceTicketInXalo: ethersToSerializedBigNumber(priceTicketInXalo),
     discountDivisor: discountDivisor?.toString(),
     treasuryFee: treasuryFee?.toString(),
     firstTicketId: firstTicketId?.toString(),
@@ -63,7 +63,7 @@ const processViewLotteryErrorResponse = (lotteryId: string): LotteryResponse => 
     status: LotteryStatus.PENDING,
     startTime: '',
     endTime: '',
-    priceTicketInCake: '',
+    priceTicketInXalo: '',
     discountDivisor: '',
     treasuryFee: '',
     firstTicketId: '',
@@ -139,7 +139,7 @@ export const useProcessLotteryResponse = (
   lotteryData: LotteryResponse & { userTickets?: LotteryRoundUserTickets },
 ): LotteryRound => {
   const {
-    priceTicketInCake: priceTicketInCakeAsString,
+    priceTicketInXalo: priceTicketInXaloAsString,
     discountDivisor: discountDivisorAsString,
     amountCollectedInCake: amountCollectedInCakeAsString,
   } = lotteryData
@@ -148,9 +148,9 @@ export const useProcessLotteryResponse = (
     return new BigNumber(discountDivisorAsString)
   }, [discountDivisorAsString])
 
-  const priceTicketInCake = useMemo(() => {
-    return new BigNumber(priceTicketInCakeAsString)
-  }, [priceTicketInCakeAsString])
+  const priceTicketInXalo = useMemo(() => {
+    return new BigNumber(priceTicketInXaloAsString)
+  }, [priceTicketInXaloAsString])
 
   const amountCollectedInCake = useMemo(() => {
     return new BigNumber(amountCollectedInCakeAsString)
@@ -163,7 +163,7 @@ export const useProcessLotteryResponse = (
     status: lotteryData.status,
     startTime: lotteryData.startTime,
     endTime: lotteryData.endTime,
-    priceTicketInCake,
+    priceTicketInXalo,
     discountDivisor,
     treasuryFee: lotteryData.treasuryFee,
     firstTicketId: lotteryData.firstTicketId,
