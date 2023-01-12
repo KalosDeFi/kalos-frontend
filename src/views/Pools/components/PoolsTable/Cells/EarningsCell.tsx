@@ -34,10 +34,10 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
   const { t } = useTranslation()
   const { isXs, isSm } = useMatchBreakpoints()
   const { sousId, earningToken, poolCategory, userData, earningTokenPrice, isAutoVault } = pool
-  const isManualCakePool = sousId === 0
+  const isManualXaloPool = sousId === 0
 
   const earnings = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO
-  // These will be reassigned later if its Auto CAKE vault
+  // These will be reassigned later if its Auto XALO vault
   let earningTokenBalance = getBalanceNumber(earnings, earningToken.decimals)
   let earningTokenDollarBalance = getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals)
   let hasEarnings = account && earnings.gt(0)
@@ -45,12 +45,12 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
   const formattedBalance = formatNumber(earningTokenBalance, 3, 3)
   const isBnbPool = poolCategory === PoolCategory.BINANCE
 
-  // Auto CAKE vault calculations
+  // Auto XALO vault calculations
   const {
     userData: { xaloAtLastUserAction, userShares, lastUserActionTime },
     pricePerFullShare,
   } = useKalosVault()
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getKalosVaultEarnings(
+  const { hasAutoEarnings, autoXaloToDisplay, autoUsdToDisplay } = getKalosVaultEarnings(
     account,
     xaloAtLastUserAction,
     userShares,
@@ -63,13 +63,13 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
   const dateStringToDisplay = dateTimeLastAction.toLocaleString()
 
   const labelText = isAutoVault ? t('Recent XALO profit') : t('%asset% Earned', { asset: earningToken.symbol })
-  earningTokenBalance = isAutoVault ? autoCakeToDisplay : earningTokenBalance
+  earningTokenBalance = isAutoVault ? autoXaloToDisplay : earningTokenBalance
   hasEarnings = isAutoVault ? hasAutoEarnings : hasEarnings
   earningTokenDollarBalance = isAutoVault ? autoUsdToDisplay : earningTokenDollarBalance
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
-      <Balance fontSize="16px" value={autoCakeToDisplay} decimals={3} bold unit=" XALO" />
+      <Balance fontSize="16px" value={autoXaloToDisplay} decimals={3} bold unit=" XALO" />
       <Balance fontSize="16px" value={autoUsdToDisplay} decimals={2} bold prefix="~$" />
       {t('Earned since your last action')}
       <Text>{dateStringToDisplay}</Text>
@@ -85,7 +85,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
       earningsDollarValue={earningTokenDollarBalance}
       sousId={sousId}
       isBnbPool={isBnbPool}
-      isCompoundPool={isManualCakePool}
+      isCompoundPool={isManualXaloPool}
     />,
   )
 
