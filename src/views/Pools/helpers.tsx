@@ -3,28 +3,28 @@ import { Pool } from 'state/types'
 import { getRoi, tokenEarnedPerThousandDollarsCompounding } from 'utils/compoundApyHelpers'
 import { getBalanceNumber, getFullDisplayBalance, getDecimalAmount } from 'utils/formatBalance'
 
-export const convertSharesToCake = (
+export const convertSharesToXalo = (
   shares: BigNumber,
-  cakePerFullShare: BigNumber,
+  xaloPerFullShare: BigNumber,
   decimals = 18,
   decimalsToRound = 3,
 ) => {
-  const sharePriceNumber = getBalanceNumber(cakePerFullShare, decimals)
-  const amountInCake = new BigNumber(shares.multipliedBy(sharePriceNumber))
-  const cakeAsNumberBalance = getBalanceNumber(amountInCake, decimals)
-  const cakeAsBigNumber = getDecimalAmount(new BigNumber(cakeAsNumberBalance), decimals)
-  const cakeAsDisplayBalance = getFullDisplayBalance(amountInCake, decimals, decimalsToRound)
-  return { cakeAsNumberBalance, cakeAsBigNumber, cakeAsDisplayBalance }
+  const sharePriceNumber = getBalanceNumber(xaloPerFullShare, decimals)
+  const amountInXalo = new BigNumber(shares.multipliedBy(sharePriceNumber))
+  const xaloAsNumberBalance = getBalanceNumber(amountInXalo, decimals)
+  const xaloAsBigNumber = getDecimalAmount(new BigNumber(xaloAsNumberBalance), decimals)
+  const xaloAsDisplayBalance = getFullDisplayBalance(amountInXalo, decimals, decimalsToRound)
+  return { xaloAsNumberBalance, xaloAsBigNumber, xaloAsDisplayBalance }
 }
 
-export const convertCakeToShares = (
-  cake: BigNumber,
-  cakePerFullShare: BigNumber,
+export const convertXaloToShares = (
+  xalo: BigNumber,
+  xaloPerFullShare: BigNumber,
   decimals = 18,
   decimalsToRound = 3,
 ) => {
-  const sharePriceNumber = getBalanceNumber(cakePerFullShare, decimals)
-  const amountInShares = new BigNumber(cake.dividedBy(sharePriceNumber))
+  const sharePriceNumber = getBalanceNumber(xaloPerFullShare, decimals)
+  const amountInShares = new BigNumber(xalo.dividedBy(sharePriceNumber))
   const sharesAsNumberBalance = getBalanceNumber(amountInShares, decimals)
   const sharesAsBigNumber = getDecimalAmount(new BigNumber(sharesAsNumberBalance), decimals)
   const sharesAsDisplayBalance = getFullDisplayBalance(amountInShares, decimals, decimalsToRound)
@@ -71,13 +71,13 @@ export const getKalosVaultEarnings = (
 ) => {
   const hasAutoEarnings =
     account && xaloAtLastUserAction && xaloAtLastUserAction.gt(0) && userShares && userShares.gt(0)
-  const { cakeAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare)
-  const autoCakeProfit = cakeAsBigNumber.minus(xaloAtLastUserAction)
-  const autoCakeToDisplay = autoCakeProfit.gte(0) ? getBalanceNumber(autoCakeProfit, 18) : 0
+  const { xaloAsBigNumber } = convertSharesToXalo(userShares, pricePerFullShare)
+  const autoXaloProfit = xaloAsBigNumber.minus(xaloAtLastUserAction)
+  const autoXaloToDisplay = autoXaloProfit.gte(0) ? getBalanceNumber(autoXaloProfit, 18) : 0
 
-  const autoUsdProfit = autoCakeProfit.times(earningTokenPrice)
+  const autoUsdProfit = autoXaloProfit.times(earningTokenPrice)
   const autoUsdToDisplay = autoUsdProfit.gte(0) ? getBalanceNumber(autoUsdProfit, 18) : 0
-  return { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay }
+  return { hasAutoEarnings, autoXaloToDisplay, autoUsdToDisplay }
 }
 
 export const getPoolBlockInfo = (pool: Pool, currentBlock: number) => {

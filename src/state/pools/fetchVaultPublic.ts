@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
-import { convertSharesToCake } from 'views/Pools/helpers'
+import { convertSharesToXalo } from 'views/Pools/helpers'
 import { multicallv2 } from 'utils/multicall'
-import kalosVaultAbi from 'config/abi/kalosVault.json'
+import kalosVaultAbi from 'config/abi/KalosVault.json'
 import { getKalosVaultAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 
@@ -10,35 +10,35 @@ export const fetchPublicVaultData = async () => {
     const calls = [
       'getPricePerFullShare',
       'totalShares',
-      'calculateHarvestCakeRewards',
-      'calculateTotalPendingCakeRewards',
+      'calculateHarvestXaloRewards',
+      'calculateTotalPendingXaloRewards',
     ].map((method) => ({
       address: getKalosVaultAddress(),
       name: method,
     }))
 
-    const [[sharePrice], [shares], [estimatedCakeBountyReward], [totalPendingCakeHarvest]] = await multicallv2(
+    const [[sharePrice], [shares], [estimatedXaloBountyReward], [totalPendingXaloHarvest]] = await multicallv2(
       kalosVaultAbi,
       calls,
     )
 
     const totalSharesAsBigNumber = shares ? new BigNumber(shares.toString()) : BIG_ZERO
     const sharePriceAsBigNumber = sharePrice ? new BigNumber(sharePrice.toString()) : BIG_ZERO
-    const totalCakeInVaultEstimate = convertSharesToCake(totalSharesAsBigNumber, sharePriceAsBigNumber)
+    const totalXaloInVaultEstimate = convertSharesToXalo(totalSharesAsBigNumber, sharePriceAsBigNumber)
     return {
       totalShares: totalSharesAsBigNumber.toJSON(),
       pricePerFullShare: sharePriceAsBigNumber.toJSON(),
-      totalCakeInVault: totalCakeInVaultEstimate.cakeAsBigNumber.toJSON(),
-      estimatedCakeBountyReward: new BigNumber(estimatedCakeBountyReward.toString()).toJSON(),
-      totalPendingCakeHarvest: new BigNumber(totalPendingCakeHarvest.toString()).toJSON(),
+      totalXaloInVault: totalXaloInVaultEstimate.xaloAsBigNumber.toJSON(),
+      estimatedXaloBountyReward: new BigNumber(estimatedXaloBountyReward.toString()).toJSON(),
+      totalPendingXaloHarvest: new BigNumber(totalPendingXaloHarvest.toString()).toJSON(),
     }
   } catch (error) {
     return {
       totalShares: null,
       pricePerFullShare: null,
-      totalCakeInVault: null,
-      estimatedCakeBountyReward: null,
-      totalPendingCakeHarvest: null,
+      totalXaloInVault: null,
+      estimatedXaloBountyReward: null,
+      totalPendingXaloHarvest: null,
     }
   }
 }
