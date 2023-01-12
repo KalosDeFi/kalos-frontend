@@ -30,8 +30,8 @@ const PreviousRoundCardFooter: React.FC<{ lotteryData: LotteryRound; lotteryId: 
 
   let prizeInBusd = new BigNumber(NaN)
   if (lotteryData) {
-    const { amountCollectedInCake } = lotteryData
-    prizeInBusd = amountCollectedInCake.times(xaloPriceBusd)
+    const { amountCollectedInXalo } = lotteryData
+    prizeInBusd = amountCollectedInXalo.times(xaloPriceBusd)
   }
 
   const getPrizeBalances = () => {
@@ -51,7 +51,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryData: LotteryRound; lotteryId: 
             fontSize="14px"
             color="textSubtle"
             unit=" CAKE"
-            value={getBalanceNumber(lotteryData?.amountCollectedInCake)}
+            value={getBalanceNumber(lotteryData?.amountCollectedInXalo)}
             decimals={0}
           />
         )}

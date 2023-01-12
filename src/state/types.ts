@@ -421,7 +421,7 @@ export interface LotteryRound extends LotteryRoundGenerics {
 export interface LotteryResponse extends LotteryRoundGenerics {
   priceTicketInXalo: SerializedBigNumber
   discountDivisor: SerializedBigNumber
-  amountCollectedInCake: SerializedBigNumber
+  amountCollectedInXalo: SerializedBigNumber
   xaloPerBracket: SerializedBigNumber[]
   countWinnersPerBracket: SerializedBigNumber[]
   rewardsBreakdown: SerializedBigNumber[]

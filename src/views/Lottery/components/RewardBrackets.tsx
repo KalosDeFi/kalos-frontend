@@ -47,11 +47,11 @@ const RewardBrackets: React.FC<RewardMatchesProps> = ({ lotteryData, isHistoricR
 
   useEffect(() => {
     if (lotteryData) {
-      const { treasuryFee, amountCollectedInCake, rewardsBreakdown, countWinnersPerBracket } = lotteryData
+      const { treasuryFee, amountCollectedInXalo, rewardsBreakdown, countWinnersPerBracket } = lotteryData
 
       const feeAsPercentage = new BigNumber(treasuryFee).div(100)
-      const cakeToBurn = feeAsPercentage.div(100).times(new BigNumber(amountCollectedInCake))
-      const amountLessTreasuryFee = new BigNumber(amountCollectedInCake).minus(cakeToBurn)
+      const cakeToBurn = feeAsPercentage.div(100).times(new BigNumber(amountCollectedInXalo))
+      const amountLessTreasuryFee = new BigNumber(amountCollectedInXalo).minus(cakeToBurn)
       setState({
         isLoading: false,
         cakeToBurn,

@@ -26,9 +26,9 @@ const initialState: LotteryState = {
     treasuryFee: '',
     firstTicketId: '',
     lastTicketId: '',
-    amountCollectedInCake: '',
+    amountCollectedInXalo: '',
     finalNumber: null,
-    cakePerBracket: [],
+    xaloPerBracket: [],
     countWinnersPerBracket: [],
     rewardsBreakdown: [],
     userTickets: {

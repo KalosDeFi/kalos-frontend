@@ -57,8 +57,8 @@ const LotteryCardContent = () => {
   useEffect(() => {
     // get public data for current lottery
     const fetchCurrentLotteryPrize = async () => {
-      const { amountCollectedInCake } = await fetchLottery(lotteryId)
-      const prizeInBusd = xaloPriceBusd.times(amountCollectedInCake)
+      const { amountCollectedInXalo } = await fetchLottery(lotteryId)
+      const prizeInBusd = xaloPriceBusd.times(amountCollectedInXalo)
       setCurrentLotteryPrize(prizeInBusd)
     }
 

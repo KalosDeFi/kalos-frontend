@@ -23,15 +23,15 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     treasuryFee,
     firstTicketId,
     lastTicketId,
-    amountCollectedInCake,
+    amountCollectedInXalo,
     finalNumber,
-    cakePerBracket,
+    xaloPerBracket,
     countWinnersPerBracket,
     rewardsBreakdown,
   } = response
 
   const statusKey = Object.keys(LotteryStatus)[status]
-  const serializedCakePerBracket = cakePerBracket.map((cakeInBracket) => ethersToSerializedBigNumber(cakeInBracket))
+  const serializedCakePerBracket = xaloPerBracket.map((cakeInBracket) => ethersToSerializedBigNumber(cakeInBracket))
   const serializedCountWinnersPerBracket = countWinnersPerBracket.map((winnersInBracket) =>
     ethersToSerializedBigNumber(winnersInBracket),
   )
@@ -48,9 +48,9 @@ const processViewLotterySuccessResponse = (response, lotteryId: string): Lottery
     treasuryFee: treasuryFee?.toString(),
     firstTicketId: firstTicketId?.toString(),
     lastTicketId: lastTicketId?.toString(),
-    amountCollectedInCake: ethersToSerializedBigNumber(amountCollectedInCake),
+    amountCollectedInXalo: ethersToSerializedBigNumber(amountCollectedInXalo),
     finalNumber,
-    cakePerBracket: serializedCakePerBracket,
+    xaloPerBracket: serializedCakePerBracket,
     countWinnersPerBracket: serializedCountWinnersPerBracket,
     rewardsBreakdown: serializedRewardsBreakdown,
   }
@@ -68,9 +68,9 @@ const processViewLotteryErrorResponse = (lotteryId: string): LotteryResponse => 
     treasuryFee: '',
     firstTicketId: '',
     lastTicketId: '',
-    amountCollectedInCake: '',
+    amountCollectedInXalo: '',
     finalNumber: null,
-    cakePerBracket: [],
+    xaloPerBracket: [],
     countWinnersPerBracket: [],
     rewardsBreakdown: [],
   }
@@ -141,7 +141,7 @@ export const useProcessLotteryResponse = (
   const {
     priceTicketInXalo: priceTicketInXaloAsString,
     discountDivisor: discountDivisorAsString,
-    amountCollectedInCake: amountCollectedInCakeAsString,
+    amountCollectedInXalo: amountCollectedInXaloAsString,
   } = lotteryData
 
   const discountDivisor = useMemo(() => {
@@ -152,9 +152,9 @@ export const useProcessLotteryResponse = (
     return new BigNumber(priceTicketInXaloAsString)
   }, [priceTicketInXaloAsString])
 
-  const amountCollectedInCake = useMemo(() => {
-    return new BigNumber(amountCollectedInCakeAsString)
-  }, [amountCollectedInCakeAsString])
+  const amountCollectedInXalo = useMemo(() => {
+    return new BigNumber(amountCollectedInXaloAsString)
+  }, [amountCollectedInXaloAsString])
 
   return {
     isLoading: lotteryData.isLoading,
@@ -168,9 +168,9 @@ export const useProcessLotteryResponse = (
     treasuryFee: lotteryData.treasuryFee,
     firstTicketId: lotteryData.firstTicketId,
     lastTicketId: lotteryData.lastTicketId,
-    amountCollectedInCake,
+    amountCollectedInXalo,
     finalNumber: lotteryData.finalNumber,
-    cakePerBracket: lotteryData.cakePerBracket,
+    xaloPerBracket: lotteryData.xaloPerBracket,
     countWinnersPerBracket: lotteryData.countWinnersPerBracket,
     rewardsBreakdown: lotteryData.rewardsBreakdown,
   }
