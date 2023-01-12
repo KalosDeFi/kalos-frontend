@@ -94,9 +94,9 @@ export interface VaultUser {
 export interface KalosVault {
   totalShares?: string
   pricePerFullShare?: string
-  totalCakeInVault?: string
-  estimatedCakeBountyReward?: string
-  totalPendingCakeHarvest?: string
+  totalXaloInVault?: string
+  estimatedXaloBountyReward?: string
+  totalPendingXaloHarvest?: string
   fees?: VaultFees
   userData?: VaultUser
 }
@@ -410,19 +410,19 @@ interface LotteryRoundGenerics {
 
 export interface LotteryRound extends LotteryRoundGenerics {
   userTickets?: LotteryRoundUserTickets
-  priceTicketInCake: BigNumber
+  priceTicketInXalo: BigNumber
   discountDivisor: BigNumber
-  amountCollectedInCake: BigNumber
-  cakePerBracket: string[]
+  amountCollectedInXalo: BigNumber
+  xaloPerBracket: string[]
   countWinnersPerBracket: string[]
   rewardsBreakdown: string[]
 }
 
 export interface LotteryResponse extends LotteryRoundGenerics {
-  priceTicketInCake: SerializedBigNumber
+  priceTicketInXalo: SerializedBigNumber
   discountDivisor: SerializedBigNumber
   amountCollectedInCake: SerializedBigNumber
-  cakePerBracket: SerializedBigNumber[]
+  xaloPerBracket: SerializedBigNumber[]
   countWinnersPerBracket: SerializedBigNumber[]
   rewardsBreakdown: SerializedBigNumber[]
 }
@@ -450,7 +450,7 @@ export interface LotteryRoundGraphEntity {
 
 export interface LotteryUserGraphEntity {
   account: string
-  totalCake: string
+  totalXalo: string
   totalTickets: string
   rounds: UserRound[]
 }

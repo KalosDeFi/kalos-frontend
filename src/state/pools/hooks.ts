@@ -69,9 +69,9 @@ export const useKalosVault = () => {
   const {
     totalShares: totalSharesAsString,
     pricePerFullShare: pricePerFullShareAsString,
-    totalCakeInVault: totalCakeInVaultAsString,
-    estimatedCakeBountyReward: estimatedCakeBountyRewardAsString,
-    totalPendingCakeHarvest: totalPendingCakeHarvestAsString,
+    totalXaloInVault: totalXaloInVaultAsString,
+    estimatedXaloBountyReward: estimatedXaloBountyRewardAsString,
+    totalPendingXaloHarvest: totalPendingXaloHarvestAsString,
     fees: { performanceFee, callFee, withdrawalFee, withdrawalFeePeriod },
     userData: {
       isLoading,
@@ -82,13 +82,13 @@ export const useKalosVault = () => {
     },
   } = useSelector((state: State) => state.pools.kalosVault)
 
-  const estimatedCakeBountyReward = useMemo(() => {
-    return new BigNumber(estimatedCakeBountyRewardAsString)
-  }, [estimatedCakeBountyRewardAsString])
+  const estimatedXaloBountyReward = useMemo(() => {
+    return new BigNumber(estimatedXaloBountyRewardAsString)
+  }, [estimatedXaloBountyRewardAsString])
 
-  const totalPendingCakeHarvest = useMemo(() => {
-    return new BigNumber(totalPendingCakeHarvestAsString)
-  }, [totalPendingCakeHarvestAsString])
+  const totalPendingXaloHarvest = useMemo(() => {
+    return new BigNumber(totalPendingXaloHarvestAsString)
+  }, [totalPendingXaloHarvestAsString])
 
   const totalShares = useMemo(() => {
     return new BigNumber(totalSharesAsString)
@@ -98,9 +98,9 @@ export const useKalosVault = () => {
     return new BigNumber(pricePerFullShareAsString)
   }, [pricePerFullShareAsString])
 
-  const totalCakeInVault = useMemo(() => {
-    return new BigNumber(totalCakeInVaultAsString)
-  }, [totalCakeInVaultAsString])
+  const totalXaloInVault = useMemo(() => {
+    return new BigNumber(totalXaloInVaultAsString)
+  }, [totalXaloInVaultAsString])
 
   const userShares = useMemo(() => {
     return new BigNumber(userSharesAsString)
@@ -113,9 +113,9 @@ export const useKalosVault = () => {
   return {
     totalShares,
     pricePerFullShare,
-    totalCakeInVault,
-    estimatedCakeBountyReward,
-    totalPendingCakeHarvest,
+    totalXaloInVault,
+    estimatedXaloBountyReward,
+    totalPendingXaloHarvest,
     fees: {
       performanceFee,
       callFee,

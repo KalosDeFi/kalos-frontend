@@ -23,9 +23,9 @@ const initialState: PoolsState = {
   kalosVault: {
     totalShares: null,
     pricePerFullShare: null,
-    totalCakeInVault: null,
-    estimatedCakeBountyReward: null,
-    totalPendingCakeHarvest: null,
+    totalXaloInVault: null,
+    estimatedXaloBountyReward: null,
+    totalPendingXaloHarvest: null,
     fees: {
       performanceFee: null,
       callFee: null,
