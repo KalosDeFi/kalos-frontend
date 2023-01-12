@@ -21,7 +21,7 @@ import {
   getPredictionsAddress,
   getChainlinkOracleAddress,
   getMulticallAddress,
-  getBunnySpecialKalosVaultAddress,
+  getBunnySpecialCakeVaultAddress,
   getBunnySpecialPredictionAddress,
   getFarmAuctionAddress,
 } from 'utils/addressHelpers'
@@ -50,7 +50,7 @@ import kalosVaultAbi from 'config/abi/KalosVault.json'
 import predictionsAbi from 'config/abi/predictions.json'
 import chainlinkOracleAbi from 'config/abi/chainlinkOracle.json'
 import MultiCallAbi from 'config/abi/Multicall.json'
-import bunnySpecialKalosVaultAbi from 'config/abi/bunnySpecialCakeVault.json'
+import bunnySpecialCakeVaultAbi from 'config/abi/bunnySpecialCakeVault.json'
 import bunnySpecialPredictionAbi from 'config/abi/bunnySpecialPrediction.json'
 import farmAuctionAbi from 'config/abi/farmAuction.json'
 import { ChainLinkOracleContract, FarmAuctionContract, PredictionsContract } from './types'
@@ -131,8 +131,8 @@ export const getChainlinkOracleContract = (signer?: ethers.Signer | ethers.provi
 export const getMulticallContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(MultiCallAbi, getMulticallAddress(), signer)
 }
-export const getBunnySpecialKalosVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(bunnySpecialKalosVaultAbi, getBunnySpecialKalosVaultAddress(), signer)
+export const getBunnySpecialCakeVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(bunnySpecialCakeVaultAbi, getBunnySpecialCakeVaultAddress(), signer)
 }
 export const getBunnySpecialPredictionContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(bunnySpecialPredictionAbi, getBunnySpecialPredictionAddress(), signer)
