@@ -33,7 +33,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
   const kalosVaultContract = useKalosVaultContract()
   const [pendingTx, setPendingTx] = useState(false)
   const {
-    estimatedCakeBountyReward,
+    estimatedXaloBountyReward,
     totalPendingCakeHarvest,
     fees: { callFee },
   } = useKalosVault()
@@ -42,13 +42,13 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
   const totalYieldToDisplay = getBalanceNumber(totalPendingCakeHarvest, 18)
 
   const estimatedDollarBountyReward = useMemo(() => {
-    return new BigNumber(estimatedCakeBountyReward).multipliedBy(xaloPriceBusd)
-  }, [xaloPriceBusd, estimatedCakeBountyReward])
+    return new BigNumber(estimatedXaloBountyReward).multipliedBy(xaloPriceBusd)
+  }, [xaloPriceBusd, estimatedXaloBountyReward])
 
   const hasFetchedDollarBounty = estimatedDollarBountyReward.gte(0)
-  const hasFetchedCakeBounty = estimatedCakeBountyReward ? estimatedCakeBountyReward.gte(0) : false
+  const hasFetchedCakeBounty = estimatedXaloBountyReward ? estimatedXaloBountyReward.gte(0) : false
   const dollarBountyToDisplay = hasFetchedDollarBounty ? getBalanceNumber(estimatedDollarBountyReward, 18) : 0
-  const cakeBountyToDisplay = hasFetchedCakeBounty ? getBalanceNumber(estimatedCakeBountyReward, 18) : 0
+  const cakeBountyToDisplay = hasFetchedCakeBounty ? getBalanceNumber(estimatedXaloBountyReward, 18) : 0
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(<TooltipComponent fee={callFee} />, {
     placement: 'bottom',

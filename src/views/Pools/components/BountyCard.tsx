@@ -32,19 +32,19 @@ const StyledCard = styled(Card)`
 const BountyCard = () => {
   const { t } = useTranslation()
   const {
-    estimatedCakeBountyReward,
+    estimatedXaloBountyReward,
     fees: { callFee },
   } = useKalosVault()
   const xaloPriceBusd = usePriceXaloBusd()
 
   const estimatedDollarBountyReward = useMemo(() => {
-    return new BigNumber(estimatedCakeBountyReward).multipliedBy(xaloPriceBusd)
-  }, [xaloPriceBusd, estimatedCakeBountyReward])
+    return new BigNumber(estimatedXaloBountyReward).multipliedBy(xaloPriceBusd)
+  }, [xaloPriceBusd, estimatedXaloBountyReward])
 
   const hasFetchedDollarBounty = estimatedDollarBountyReward.gte(0)
-  const hasFetchedCakeBounty = estimatedCakeBountyReward ? estimatedCakeBountyReward.gte(0) : false
+  const hasFetchedCakeBounty = estimatedXaloBountyReward ? estimatedXaloBountyReward.gte(0) : false
   const dollarBountyToDisplay = hasFetchedDollarBounty ? getBalanceNumber(estimatedDollarBountyReward, 18) : 0
-  const cakeBountyToDisplay = hasFetchedCakeBounty ? getBalanceNumber(estimatedCakeBountyReward, 18) : 0
+  const cakeBountyToDisplay = hasFetchedCakeBounty ? getBalanceNumber(estimatedXaloBountyReward, 18) : 0
 
   const TooltipComponent = ({ fee }: { fee: number }) => (
     <>
