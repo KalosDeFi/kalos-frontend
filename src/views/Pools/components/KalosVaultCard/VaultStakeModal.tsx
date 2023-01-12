@@ -16,7 +16,7 @@ import useToast from 'hooks/useToast'
 import { fetchKalosVaultUserData } from 'state/pools'
 import { Pool } from 'state/types'
 import { getAddress } from 'utils/addressHelpers'
-import { convertCakeToShares } from '../../helpers'
+import { convertXaloToShares } from '../../helpers'
 import FeeSummary from './FeeSummary'
 
 interface VaultStakeModalProps {
@@ -78,8 +78,8 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
 
   const handleWithdrawal = async (convertedStakeAmount: BigNumber) => {
     setPendingTx(true)
-    const shareStakeToWithdraw = convertCakeToShares(convertedStakeAmount, pricePerFullShare)
-    // trigger withdrawAll function if the withdrawal will leave 0.000001 CAKE or less
+    const shareStakeToWithdraw = convertXaloToShares(convertedStakeAmount, pricePerFullShare)
+    // trigger withdrawAll function if the withdrawal will leave 0.000001 XALO or less
     const triggerWithdrawAllThreshold = new BigNumber(1000000000000)
     const sharesRemaining = userShares.minus(shareStakeToWithdraw.sharesAsBigNumber)
     const isWithdrawingAll = sharesRemaining.lte(triggerWithdrawAllThreshold)
