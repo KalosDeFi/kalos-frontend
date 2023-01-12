@@ -32,7 +32,7 @@ const RecentXaloProfitCountdownRow = () => {
       <Text fontSize="14px">{`${t('Recent XALO profit')}:`}</Text>
       {hasAutoEarnings && (
         <RecentXaloProfitBalance
-          cakeToDisplay={autoCakeToDisplay}
+          xaloToDisplay={autoXaloToDisplay}
           dollarValueToDisplay={autoUsdToDisplay}
           dateStringToDisplay={dateStringToDisplay}
         />
