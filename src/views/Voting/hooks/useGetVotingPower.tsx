@@ -9,21 +9,21 @@ import { getVotingPower } from '../helpers'
 
 interface State {
   verificationHash: string
-  cakeBalance: BigNumber
+  xaloBalance: BigNumber
   kalosVaultBalance: BigNumber
-  cakePoolBalance: BigNumber
+  xaloPoolBalance: BigNumber
   poolsBalance: BigNumber
-  cakeBnbLpBalance: BigNumber
+  xaloBnbLpBalance: BigNumber
   total: BigNumber
 }
 
 const initialState: State = {
   verificationHash: null,
-  cakeBalance: BIG_ZERO,
+  xaloBalance: BIG_ZERO,
   kalosVaultBalance: BIG_ZERO,
-  cakePoolBalance: BIG_ZERO,
+  xaloPoolBalance: BIG_ZERO,
   poolsBalance: BIG_ZERO,
-  cakeBnbLpBalance: BIG_ZERO,
+  xaloBnbLpBalance: BIG_ZERO,
   total: BIG_ZERO,
 }
 
@@ -41,9 +41,9 @@ const useGetVotingPower = (block?: number, isActive = true): State & { isLoading
         const eligiblePools = await getActivePools(blockNumber)
         const poolAddresses = eligiblePools.map(({ contractAddress }) => getAddress(contractAddress))
         const {
-          cakeBalance,
-          cakeBnbLpBalance,
-          cakePoolBalance,
+          xaloBalance,
+          xaloBnbLpBalance,
+          xaloPoolBalance,
           total,
           poolsBalance,
           kalosVaultBalance,
@@ -54,9 +54,9 @@ const useGetVotingPower = (block?: number, isActive = true): State & { isLoading
           setVotingPower((prevVotingPower) => ({
             ...prevVotingPower,
             verificationHash,
-            cakeBalance: new BigNumber(cakeBalance),
-            cakeBnbLpBalance: new BigNumber(cakeBnbLpBalance),
-            cakePoolBalance: new BigNumber(cakePoolBalance),
+            xaloBalance: new BigNumber(xaloBalance),
+            xaloBnbLpBalance: new BigNumber(xaloBnbLpBalance),
+            xaloPoolBalance: new BigNumber(xaloPoolBalance),
             poolsBalance: new BigNumber(poolsBalance),
             kalosVaultBalance: new BigNumber(kalosVaultBalance),
             total: new BigNumber(total),
