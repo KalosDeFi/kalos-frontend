@@ -7,7 +7,7 @@ import { usePriceXaloBusd } from 'state/farms/hooks'
 import { useKalosVault } from 'state/pools/hooks'
 import Balance from 'components/Balance'
 import NotEnoughTokensModal from '../../PoolCard/Modals/NotEnoughTokensModal'
-import { convertSharesToCake } from '../../../helpers'
+import { convertSharesToXalo } from '../../../helpers'
 import VaultStakeModal from '../VaultStakeModal'
 
 interface HasStakeActionProps {
@@ -21,20 +21,20 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
     pricePerFullShare,
   } = useKalosVault()
   const { stakingToken } = pool
-  const { cakeAsBigNumber, cakeAsNumberBalance } = convertSharesToCake(userShares, pricePerFullShare)
+  const { xaloAsBigNumber, xaloAsNumberBalance } = convertSharesToXalo(userShares, pricePerFullShare)
   const xaloPriceBusd = usePriceXaloBusd()
   const stakedDollarValue = xaloPriceBusd.gt(0)
-    ? getBalanceNumber(cakeAsBigNumber.multipliedBy(xaloPriceBusd), stakingToken.decimals)
+    ? getBalanceNumber(xaloAsBigNumber.multipliedBy(xaloPriceBusd), stakingToken.decimals)
     : 0
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
   const [onPresentStake] = useModal(<VaultStakeModal stakingMax={stakingTokenBalance} pool={pool} />)
-  const [onPresentUnstake] = useModal(<VaultStakeModal stakingMax={cakeAsBigNumber} pool={pool} isRemovingStake />)
+  const [onPresentUnstake] = useModal(<VaultStakeModal stakingMax={xaloAsBigNumber} pool={pool} isRemovingStake />)
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
       <Flex flexDirection="column">
-        <Balance fontSize="20px" bold value={cakeAsNumberBalance} decimals={5} />
+        <Balance fontSize="20px" bold value={xaloAsNumberBalance} decimals={5} />
         <Text fontSize="12px" color="textSubtle">
           {xaloPriceBusd.gt(0) ? (
             <Balance value={stakedDollarValue} fontSize="12px" color="textSubtle" decimals={2} prefix="~" unit=" USD" />
