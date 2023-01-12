@@ -224,7 +224,7 @@ const Pools: React.FC = () => {
     <CardLayout>
       {chosenPools.map((pool) =>
         pool.isAutoVault ? (
-          <KalosVaultCard key="auto-cake" pool={pool} showStakedOnly={stakedOnly} />
+          <KalosVaultCard key="auto-xalo" pool={pool} showStakedOnly={stakedOnly} />
         ) : (
           <PoolCard key={pool.sousId} pool={pool} account={account} />
         ),
