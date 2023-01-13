@@ -3,7 +3,7 @@ import { getXaloAddress } from 'utils/addressHelpers'
 import useTokenBalance from './useTokenBalance'
 
 /**
- * A hook to check if a wallet's CAKE balance is at least the amount passed in
+ * A hook to check if a wallet's XALO balance is at least the amount passed in
  */
 const useHasKaloBalance = (minimumBalance: BigNumber) => {
   const { balance: xaloBalance } = useTokenBalance(getXaloAddress())
