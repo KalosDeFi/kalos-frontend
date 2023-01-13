@@ -12,7 +12,7 @@ const farms: FarmConfig[] = [
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
       56: '0xE9E9b8001d86C36F971d046D64983738599C7385',
     },
-    token: tokens.xkalo,
+    token: tokens.xalo,
     quoteToken: tokens.wbnb,
   },
 
@@ -41,7 +41,7 @@ const farms: FarmConfig[] = [
     pid: 3,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
-      97: '0xE66790075ad839978fEBa15D4d8bB2b415556a1D',
+      97: '',
       56: '0x436e40801083B254f0e9c4b1116F97585d0a24d5',
     },
     token: tokens.usdt,
