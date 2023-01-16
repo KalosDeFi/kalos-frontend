@@ -17,9 +17,9 @@ interface RoundDataAndUserTickets {
 
 const lotteryAddress = getLotteryV2Address()
 
-const fetchCakeRewardsForTickets = async (
+const fetchXaloRewardsForTickets = async (
   winningTickets: LotteryTicket[],
-): Promise<{ ticketsWithUnclaimedRewards: LotteryTicket[]; cakeTotal: BigNumber }> => {
+): Promise<{ ticketsWithUnclaimedRewards: LotteryTicket[]; xaloTotal: BigNumber }> => {
   const calls = winningTickets.map((winningTicket) => {
     const { roundId, id, rewardBracket } = winningTicket
     return {
@@ -30,19 +30,19 @@ const fetchCakeRewardsForTickets = async (
   })
 
   try {
-    const cakeRewards = await multicallv2(lotteryV2Abi, calls)
+    const xaloRewards = await multicallv2(lotteryV2Abi, calls)
 
-    const cakeTotal = cakeRewards.reduce((accum: BigNumber, cakeReward: ethers.BigNumber[]) => {
-      return accum.plus(new BigNumber(cakeReward[0].toString()))
+    const xaloTotal = xaloRewards.reduce((accum: BigNumber, xaloReward: ethers.BigNumber[]) => {
+      return accum.plus(new BigNumber(xaloReward[0].toString()))
     }, BIG_ZERO)
 
     const ticketsWithUnclaimedRewards = winningTickets.map((winningTicket, index) => {
-      return { ...winningTicket, cakeReward: cakeRewards[index] }
+      return { ...winningTicket, xaloReward: xaloRewards[index] }
     })
-    return { ticketsWithUnclaimedRewards, cakeTotal }
+    return { ticketsWithUnclaimedRewards, xaloTotal }
   } catch (error) {
     console.error(error)
-    return { ticketsWithUnclaimedRewards: null, cakeTotal: null }
+    return { ticketsWithUnclaimedRewards: null, xaloTotal: null }
   }
 }
 
@@ -92,8 +92,8 @@ export const getWinningTickets = async (
   })
 
   if (unclaimedWinningTickets.length > 0) {
-    const { ticketsWithUnclaimedRewards, cakeTotal } = await fetchCakeRewardsForTickets(unclaimedWinningTickets)
-    return { ticketsWithUnclaimedRewards, allWinningTickets, cakeTotal, roundId }
+    const { ticketsWithUnclaimedRewards, xaloTotal } = await fetchXaloRewardsForTickets(unclaimedWinningTickets)
+    return { ticketsWithUnclaimedRewards, allWinningTickets, xaloTotal, roundId }
   }
 
   if (allWinningTickets.length > 0) {

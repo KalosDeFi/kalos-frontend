@@ -28,11 +28,11 @@ const farms: FarmConfig[] = [
     multiplier: '1',
   },
   {
-    pid: 2,
+    pid: 8,
     lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x1C60Ec7fcDb05c2c5592c1d2dE2ee551AfC48f0c',
+      56: '0xB09E4A17A356642b2A47B2FAc7b3E5bCDbeb52ab',
     },
     token: tokens.busd,
     quoteToken: tokens.wbnb,
@@ -174,7 +174,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.wbnb,
   },
   {
-    pid: 8,
+    pid: 88,
     lpSymbol: 'BAKE-BNB Bakery LP',
     lpAddresses: {
       97: '0xE66790075ad839978fEBa15D4d8bB2b415556a1D',
