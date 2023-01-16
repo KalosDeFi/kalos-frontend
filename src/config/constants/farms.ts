@@ -12,7 +12,7 @@ const farms: FarmConfig[] = [
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
       56: '0xE9E9b8001d86C36F971d046D64983738599C7385',
     },
-    token: tokens.xkalo,
+    token: tokens.xalo,
     quoteToken: tokens.wbnb,
   },
 
