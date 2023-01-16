@@ -25,7 +25,7 @@ export const getPoolApr = (
 /**
  * Get farm APR value in %
  * @param poolWeight allocationPoint / totalAllocationPoint
- * @param xaloPriceUsd Kalo price in USD
+ * @param xaloPriceUsd Xalo price in USD
  * @param poolLiquidityUsd Total pool liquidity in USD
  * @returns
  */
@@ -35,8 +35,8 @@ export const getFarmApr = (
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
 ): { xaloRewardsApr: number; lpRewardsApr: number } => {
-  const yearlyKaloRewardAllocation = XALO_PER_YEAR.times(poolWeight)
-  const xaloRewardsApr = yearlyKaloRewardAllocation.times(xaloPriceUsd).div(poolLiquidityUsd).times(100)
+  const yearlyXaloRewardAllocation = XALO_PER_YEAR.times(poolWeight)
+  const xaloRewardsApr = yearlyXaloRewardAllocation.times(xaloPriceUsd).div(poolLiquidityUsd).times(100)
   let xaloRewardsAprAsNumber = null
   if (!xaloRewardsApr.isNaN() && xaloRewardsApr.isFinite()) {
     xaloRewardsAprAsNumber = xaloRewardsApr.toNumber()

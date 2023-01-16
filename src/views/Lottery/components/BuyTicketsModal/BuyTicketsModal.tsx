@@ -75,19 +75,19 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const [buyingStage, setBuyingStage] = useState<BuyingStage>(BuyingStage.BUY)
   const [maxPossibleTicketPurchase, setMaxPossibleTicketPurchase] = useState(BIG_ZERO)
   const [maxTicketPurchaseExceeded, setMaxTicketPurchaseExceeded] = useState(false)
-  const [userNotEnoughKalo, setUserNotEnoughKalo] = useState(false)
+  const [userNotEnoughXalo, setUserNotEnoughXalo] = useState(false)
   const lotteryContract = useLotteryV2Contract()
   const xaloContract = useXalo()
   const { toastSuccess } = useToast()
-  const { balance: userKalo, fetchStatus } = useTokenBalance(getXaloAddress())
+  const { balance: userXalo, fetchStatus } = useTokenBalance(getXaloAddress())
   // balance from useTokenBalance causes rerenders in effects as a new BigNumber is instanciated on each render, hence memoising it using the stringified value below.
-  const stringifiedUserKalo = userKalo.toJSON()
-  const memoisedUserKalo = useMemo(() => new BigNumber(stringifiedUserKalo), [stringifiedUserKalo])
+  const stringifiedUserXalo = userXalo.toJSON()
+  const memoisedUserXalo = useMemo(() => new BigNumber(stringifiedUserXalo), [stringifiedUserXalo])
 
   const xaloPriceBusd = usePriceXaloBusd()
   const dispatch = useAppDispatch()
   const hasFetchedBalance = fetchStatus === FetchStatus.SUCCESS
-  const userCakeDisplayBalance = getFullDisplayBalance(userKalo, 18, 3)
+  const userXaloDisplayBalance = getFullDisplayBalance(userXalo, 18, 3)
 
   const TooltipComponent = () => (
     <>
@@ -139,23 +139,23 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const validateInput = useCallback(
     (inputNumber: BigNumber) => {
       const limitedNumberTickets = limitNumberByMaxTicketsPerBuy(inputNumber)
-      const cakeCostAfterDiscount = getTicketCostAfterDiscount(limitedNumberTickets)
+      const xaloCostAfterDiscount = getTicketCostAfterDiscount(limitedNumberTickets)
 
-      if (cakeCostAfterDiscount.gt(userKalo)) {
-        setUserNotEnoughKalo(true)
+      if (xaloCostAfterDiscount.gt(userXalo)) {
+        setUserNotEnoughXalo(true)
       } else if (limitedNumberTickets.eq(maxNumberTicketsPerBuyOrClaim)) {
         setMaxTicketPurchaseExceeded(true)
       } else {
-        setUserNotEnoughKalo(false)
+        setUserNotEnoughXalo(false)
         setMaxTicketPurchaseExceeded(false)
       }
     },
-    [limitNumberByMaxTicketsPerBuy, getTicketCostAfterDiscount, maxNumberTicketsPerBuyOrClaim, userKalo],
+    [limitNumberByMaxTicketsPerBuy, getTicketCostAfterDiscount, maxNumberTicketsPerBuyOrClaim, userXalo],
   )
 
   useEffect(() => {
     const getMaxPossiblePurchase = () => {
-      const maxBalancePurchase = memoisedUserKalo.div(priceTicketInXalo)
+      const maxBalancePurchase = memoisedUserXalo.div(priceTicketInXalo)
       const limitedMaxPurchase = limitNumberByMaxTicketsPerBuy(maxBalancePurchase)
       let maxPurchase
 
@@ -175,9 +175,9 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
       }
 
       if (hasFetchedBalance && maxPurchase.lt(1)) {
-        setUserNotEnoughKalo(true)
+        setUserNotEnoughXalo(true)
       } else {
-        setUserNotEnoughKalo(false)
+        setUserNotEnoughXalo(false)
       }
 
       setMaxPossibleTicketPurchase(maxPurchase)
@@ -186,7 +186,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   }, [
     maxNumberTicketsPerBuyOrClaim,
     priceTicketInXalo,
-    memoisedUserKalo,
+    memoisedUserXalo,
     limitNumberByMaxTicketsPerBuy,
     getTicketCostAfterDiscount,
     getMaxTicketBuyWithDiscount,
@@ -226,7 +226,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
 
   const handleNumberButtonClick = (number: number) => {
     setTicketsToBuy(number.toFixed())
-    setUserNotEnoughKalo(false)
+    setUserNotEnoughXalo(false)
     setMaxTicketPurchaseExceeded(false)
   }
 
@@ -264,7 +264,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
     })
 
   const getErrorMessage = () => {
-    if (userNotEnoughKalo) return t('Insufficient XALO balance')
+    if (userNotEnoughXalo) return t('Insufficient XALO balance')
     return t('The maximum number of tickets you can buy in one transaction is %maxTickets%', {
       maxTickets: maxNumberTicketsPerBuyOrClaim.toString(),
     })
@@ -281,7 +281,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const disableBuying =
     !isApproved ||
     isConfirmed ||
-    userNotEnoughKalo ||
+    userNotEnoughXalo ||
     !ticketsToBuy ||
     new BigNumber(ticketsToBuy).lte(0) ||
     getTicketsForPurchase().length !== parseInt(ticketsToBuy, 10)
@@ -314,7 +314,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
         </Flex>
       </Flex>
       <BalanceInput
-        isWarning={userNotEnoughKalo || maxTicketPurchaseExceeded}
+        isWarning={userNotEnoughXalo || maxTicketPurchaseExceeded}
         placeholder="0"
         value={ticketsToBuy}
         onUserInput={handleInputChange}
@@ -325,18 +325,18 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
       />
       <Flex alignItems="center" justifyContent="flex-end" mt="4px" mb="12px">
         <Flex justifyContent="flex-end" flexDirection="column">
-          {(userNotEnoughKalo || maxTicketPurchaseExceeded) && (
+          {(userNotEnoughXalo || maxTicketPurchaseExceeded) && (
             <Text fontSize="12px" color="failure">
               {getErrorMessage()}
             </Text>
           )}
           <Flex justifyContent="flex-end">
             <Text fontSize="12px" color="textSubtle" mr="4px">
-              CAKE {t('Balance')}:
+              XALO {t('Balance')}:
             </Text>
             {hasFetchedBalance ? (
               <Text fontSize="12px" color="textSubtle">
-                {userCakeDisplayBalance}
+                {userXaloDisplayBalance}
               </Text>
             ) : (
               <Skeleton width={50} height={12} />

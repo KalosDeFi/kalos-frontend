@@ -58,11 +58,11 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
   const [bid, setBid] = useState('')
   const [isMultipleOfTen, setIsMultipleOfTen] = useState(false)
   const [isMoreThanInitialBidAmount, setIsMoreThanInitialBidAmount] = useState(false)
-  const [userNotEnoughKalo, setUserNotEnoughKalo] = useState(false)
+  const [userNotEnoughXalo, setUserNotEnoughXalo] = useState(false)
   const [errorText, setErrorText] = useState(null)
 
-  const { balance: userKalo, fetchStatus } = useTokenBalance(getXaloAddress())
-  const userCakeBalance = getBalanceAmount(userKalo)
+  const { balance: userXalo, fetchStatus } = useTokenBalance(getXaloAddress())
+  const userCakeBalance = getBalanceAmount(userXalo)
 
   const xaloPriceBusd = usePriceXaloBusd()
   const farmAuctionContract = useFarmAuctionContract()
@@ -79,14 +79,14 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
     setIsMoreThanInitialBidAmount(parseFloat(bid) >= initialBidAmount)
     setIsMultipleOfTen(parseFloat(bid) % 10 === 0 && parseFloat(bid) !== 0)
     if (fetchStatus === FetchStatus.SUCCESS && userCakeBalance.lt(bid)) {
-      setUserNotEnoughKalo(true)
+      setUserNotEnoughXalo(true)
     } else {
-      setUserNotEnoughKalo(false)
+      setUserNotEnoughXalo(false)
     }
   }, [bid, initialBidAmount, fetchStatus, userCakeBalance])
 
   useEffect(() => {
-    if (userNotEnoughKalo) {
+    if (userNotEnoughXalo) {
       setErrorText(t('Insufficient XALO balance'))
     } else if (!isMoreThanInitialBidAmount && isFirstBid) {
       setErrorText(t('First bid must be %initialBidAmount% XALO or more.', { initialBidAmount }))
@@ -95,7 +95,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
     } else {
       setErrorText(null)
     }
-  }, [isMultipleOfTen, isMoreThanInitialBidAmount, userNotEnoughKalo, initialBidAmount, t, isFirstBid])
+  }, [isMultipleOfTen, isMoreThanInitialBidAmount, userNotEnoughXalo, initialBidAmount, t, isFirstBid])
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
@@ -131,7 +131,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
 
   const setPercetageValue = (percentage: number) => {
     const rounding = percentage === 1 ? BigNumber.ROUND_FLOOR : BigNumber.ROUND_CEIL
-    const valueToSet = getBalanceAmount(userKalo.times(percentage)).div(10).integerValue(rounding).times(10)
+    const valueToSet = getBalanceAmount(userXalo.times(percentage)).div(10).integerValue(rounding).times(10)
     setBid(valueToSet.toString())
   }
   return (
@@ -231,10 +231,10 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
               isApproving={isApproving}
               isConfirmDisabled={
                 !isMultipleOfTen ||
-                getBalanceAmount(userKalo).lt(bid) ||
+                getBalanceAmount(userXalo).lt(bid) ||
                 isConfirmed ||
                 isInvalidFirstBid ||
-                userNotEnoughKalo
+                userNotEnoughXalo
               }
               isConfirming={isConfirming}
               onApprove={handleApprove}
@@ -246,7 +246,7 @@ const PlaceBidModal: React.FC<PlaceBidModalProps> = ({
           )}
         </Flex>
         <Text color="textSubtle" small mt="24px">
-          {t('If your bid is unsuccessful, you’ll be able to reclaim your CAKE after the auction.')}
+          {t('If your bid is unsuccessful, you’ll be able to reclaim your XALO after the auction.')}
         </Text>
       </InnerContent>
     </StyledModal>
