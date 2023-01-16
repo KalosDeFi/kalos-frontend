@@ -18,12 +18,12 @@ const ApproveCakePage: React.FC<ApproveCakePageProps> = ({ goToChange, onDismiss
   const { profile } = useProfile()
   const { t } = useTranslation()
   const { numberCakeToUpdate, numberCakeToReactivate } = useGetProfileCosts()
-  const kaloContract = useXalo()
+  const xaloContract = useXalo()
   const { toastError } = useToast()
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate
 
   const handleApprove = async () => {
-    const tx = await kaloContract.approve(getPancakeProfileAddress(), cost.times(2).toJSON())
+    const tx = await xaloContract.approve(getPancakeProfileAddress(), cost.times(2).toJSON())
     setIsApproving(true)
     const receipt = await tx.wait()
     if (receipt.status) {

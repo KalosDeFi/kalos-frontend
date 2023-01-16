@@ -23,7 +23,7 @@ const Mint: React.FC = () => {
   const { actions, minimumCakeRequired, allowance } = useProfileCreation()
 
   const { account } = useWeb3React()
-  const kaloContract = useXalo()
+  const xaloContract = useXalo()
   const bunnyFactoryContract = useBunnyFactory()
   const { t } = useTranslation()
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeBalanceToMint)
@@ -32,7 +32,7 @@ const Mint: React.FC = () => {
       onRequiresApproval: async () => {
         // TODO: Move this to a helper, this check will be probably be used many times
         try {
-          const response = await kaloContract.allowance(account, bunnyFactoryContract.address)
+          const response = await xaloContract.allowance(account, bunnyFactoryContract.address)
           const currentAllowance = new BigNumber(response.toString())
           return currentAllowance.gte(minimumCakeRequired)
         } catch (error) {
@@ -40,7 +40,7 @@ const Mint: React.FC = () => {
         }
       },
       onApprove: () => {
-        return kaloContract.approve(bunnyFactoryContract.address, allowance.toJSON())
+        return xaloContract.approve(bunnyFactoryContract.address, allowance.toJSON())
       },
       onConfirm: () => {
         return bunnyFactoryContract.mintNFT(variationId)
@@ -59,7 +59,7 @@ const Mint: React.FC = () => {
       <Text as="p">{t('Every profile starts by making a “starter” collectible (NFT).')}</Text>
       <Text as="p">{t('This starter will also become your first profile picture.')}</Text>
       <Text as="p" mb="24px">
-        {t('You can change your profile pic later if you get another approved Pancake Collectible.')}
+        {t('You can change your profile pic later if you get another approved Kalos Collectible.')}
       </Text>
       <Card mb="24px">
         <CardBody>

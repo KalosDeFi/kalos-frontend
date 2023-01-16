@@ -73,6 +73,6 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
 export const useXaloBusdPrice = (): Price | undefined => {
   const { chainId } = useActiveWeb3React()
   const currentChaindId = chainId || ChainId.MAINNET
-  const kaloBusdPrice = useBUSDPrice(XALO[currentChaindId])
-  return kaloBusdPrice
+  const xaloBusdPrice = useBUSDPrice(XALO[currentChaindId])
+  return xaloBusdPrice
 }

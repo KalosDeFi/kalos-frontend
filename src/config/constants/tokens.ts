@@ -846,9 +846,9 @@ const tokens = {
     projectLink: 'https://singular-smakager-6fd53b.netlify.app/',
   },
   xkalo: {
-    symbol: 'XXALO',
+    symbol: 'XKALO',
     address: {
-      56: '0xD5b9Cd8518ADc86853460Ef1B94D8e6cAD93C497',
+      56: '0xbA0211e8263d250661f9671F6f786C243C66ec6D',
       97: '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
     },
     decimals: 18,

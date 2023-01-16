@@ -48,7 +48,7 @@ const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemo
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeRequired)
   const { t } = useTranslation()
   const { account } = useWeb3React()
-  const kaloContract = useXalo()
+  const xaloContract = useXalo()
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate
 
   /**
@@ -57,7 +57,7 @@ const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemo
    */
   useEffect(() => {
     const checkApprovalStatus = async () => {
-      const response = await kaloContract.allowance(account, getPancakeProfileAddress())
+      const response = await xaloContract.allowance(account, getPancakeProfileAddress())
       const currentAllowance = new BigNumber(response.toString())
       setNeedsApproval(currentAllowance.lt(cost))
     }
@@ -65,7 +65,7 @@ const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemo
     if (account) {
       checkApprovalStatus()
     }
-  }, [account, cost, setNeedsApproval, kaloContract])
+  }, [account, cost, setNeedsApproval, xaloContract])
 
   if (!profile) {
     return null
