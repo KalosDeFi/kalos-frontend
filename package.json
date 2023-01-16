@@ -34,7 +34,7 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@kalosdefi/kalos-sdk": "^0.0.10",
+    "@kalosdefi/kalos-sdk": "^0.0.11",
     "@kalosdefi/uikit": "^0.0.6",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",
