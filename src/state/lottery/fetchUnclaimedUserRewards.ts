@@ -97,7 +97,7 @@ export const getWinningTickets = async (
   }
 
   if (allWinningTickets.length > 0) {
-    return { ticketsWithUnclaimedRewards: null, allWinningTickets, cakeTotal: null, roundId }
+    return { ticketsWithUnclaimedRewards: null, allWinningTickets, xaloTotal: null, roundId }
   }
 
   return null
