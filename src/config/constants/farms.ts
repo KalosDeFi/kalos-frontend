@@ -58,7 +58,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.busd,
   },
   {
-    pid: 555,
+    pid: 5555,
     lpSymbol: 'XALO-BUSD LP',
     lpAddresses: {
       97: '0xcbe3282a562e23b8c61ed04bb72ffdbb9233b1ce',
