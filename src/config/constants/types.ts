@@ -168,13 +168,13 @@ export interface LotteryTicket {
   status: boolean
   rewardBracket?: number
   roundId?: string
-  cakeReward?: SerializedBigNumber
+  xaloReward?: SerializedBigNumber
 }
 
 export interface LotteryTicketClaimData {
   ticketsWithUnclaimedRewards: LotteryTicket[]
   allWinningTickets: LotteryTicket[]
-  cakeTotal: BigNumber
+  xaloTotal: BigNumber
   roundId: string
 }
 
