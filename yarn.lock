@@ -2474,10 +2474,23 @@
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
   integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
 
-"@kalosdefi/uikit@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@kalosdefi/uikit/-/uikit-0.0.4.tgz#7f2097a9295d63eec0b34d69a116983953056977"
-  integrity sha512-qcZl7kf5lFdpgoW7oqWbaltCNZGD+X5UYDjkYDjxhPSqaNhYJXS9KnNNlkneB92eedaYH7mTTGgLT3uNgIcvCw==
+"@kalosdefi/kalos-sdk@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@kalosdefi/kalos-sdk/-/kalos-sdk-0.0.11.tgz#ba2f3dbd7c6c535dc2518569236047fdbd0d24a4"
+  integrity sha512-932BAiAWBbbmzsgUlAvATxm4mFLwjph77gKAcEEp1n8tH0u0FntuuW9YQ0yHBncnPD6ZaN2nXIJashYFccasXQ==
+  dependencies:
+    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
+"@kalosdefi/uikit@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@kalosdefi/uikit/-/uikit-0.0.6.tgz#c99ca3507da32f15d991a031c2973465394e292d"
+  integrity sha512-vOsybf8Srdrm5wnyDZBYL2PTUYz03xSojJHMWwU6ytdjbHwKD1LOed8HnNlXB+rXSWK0hDJY1Hy/9/TiN9s72g==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"
@@ -2602,19 +2615,6 @@
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
-
-"@pancakeswap/sdk@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@pancakeswap/sdk/-/sdk-2.3.2.tgz#35c986ac4965dff713bb06d523ffa34312a07228"
-  integrity sha512-ILwO8RsOF9hc/k63WkbUB36uAGPi4QWtPWv/smNAdzIM2F09VdaWL8/NsSdp8bB6cA4ZmqP2DUFsTMvLOodl0A==
-  dependencies:
-    "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
 
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   version "0.4.3"
